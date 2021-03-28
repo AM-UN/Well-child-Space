@@ -10,6 +10,23 @@
   </head>
 
   <body>
+    <header>
+      <div class="header-container">
+        <div class="header-logo">
+          <%= link_to("Well-child-Space", "/") %>
+        </div>
+        <div class="header-list">    
+          <ul>
+            <li> 新規登録 </li>
+            <li> ログイン </li>
+            <li>検索</li>
+          </ul>
+        </div>
+    </header>
+    <div class="header2">
+      <h2>子育ての悩みや疑問はありませんか</h2>
+      <h3>相談する</h3>
+    </div>
     <%= yield %>
   </body>
 </html>
