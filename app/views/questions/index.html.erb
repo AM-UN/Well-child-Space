@@ -1,5 +1,5 @@
 <% @questions.each do |question| %>
-  <%= question.question_content %>
+  <%= link_to(question.question_content, "/questions/#{question.id}") %>
   <% if question.question_image.present? %>
     <%= image_tag question.question_image.url %>
   <% end %>
