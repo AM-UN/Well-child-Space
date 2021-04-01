@@ -1,2 +1,6 @@
-<h1>Questions#index</h1>
-<p>Find me in app/views/questions/index.html.erb</p>
+<% @questions.each do |question| %>
+  <%= question.question_content %>
+  <% if question.question_image.present? %>
+    <%= image_tag question.question_image.url %>
+  <% end %>
+<% end %>
