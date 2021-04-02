@@ -1,4 +1,6 @@
 class QuestionsController < ApplicationController
+  before_action :set_question, only: [:show, :edit, :update, :destroy]
+
   def index
     @questions = Question.all.order(created_at: :desc)
   end
@@ -18,15 +20,12 @@ class QuestionsController < ApplicationController
   end  
 
   def show
-    @question = Question.find_by(id:params[:id])
   end
 
   def edit
-    @question = Question.find_by(id:params[:id])
   end
 
-  def update
-    @question = Question.find_by(id:params[:id])
+  def update 
     if @question.update(question_params)
       redirect_to("/questions")
     else
@@ -34,14 +33,16 @@ class QuestionsController < ApplicationController
     end
   end
 
-  def destroy
-    @question = Question.find_by(id:params[:id])
+  def destroy  
     if @question.destroy
       redirect_to("/questions")
     end
   end
 
   private
+    def set_question
+      @question = Question.find_by(id:params[:id])
+    end
    
     def question_params
       params.require(:question).permit(:question_content, :question_image)
