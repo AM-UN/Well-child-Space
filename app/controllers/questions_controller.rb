@@ -13,9 +13,9 @@ class QuestionsController < ApplicationController
     @question = Question.new(question_params)
   
     if @question.save
-      redirect_to("/questions")
+      redirect_to(questions_path)
     else
-      render("questions/new")
+      render(new_question_path)
     end
   end  
 
@@ -27,15 +27,15 @@ class QuestionsController < ApplicationController
 
   def update 
     if @question.update(question_params)
-      redirect_to("/questions")
+      redirect_to(questions_path)
     else
-      render("questions/edit")
+      render(edit_question_path)
     end
   end
 
   def destroy  
     if @question.destroy
-      redirect_to("/questions")
+      redirect_to(questions_path)
     end
   end
 
