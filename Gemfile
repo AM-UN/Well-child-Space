@@ -21,6 +21,9 @@ gem 'carrierwave'
 gem 'devise'
 # Translate error messages from English into Japanese
 gem 'rails-i18n'
+# Translate error messages from English into Japanese for devise
+gem 'devise-i18n'
+gem 'devise-i18n-views'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
 
