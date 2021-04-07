@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   validates :email, length:{minimum:5, maximum:30}, allow_blank: true
 
+  mount_uploader :profile_image, ImageUploader
 end

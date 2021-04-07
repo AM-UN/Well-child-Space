@@ -1,0 +1,14 @@
+<%= form_with model: @user, local: true do |form| %>
+  <%= form.label :name, "ユーザー名" %>
+  <%= form.text_field :name, autofocus: true %>
+
+　<%= form.label :profile_image, "プロフィール画像" %>
+  <%= form.file_field :profile_image %>
+
+  <%= form.label :self_introduciton, "自己紹介" %>
+  <%= form.text_area :self_introduciton %>
+
+  <%= form.submit "編集を完了する" %>
+  
+<% end %>
+
