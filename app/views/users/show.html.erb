@@ -1,7 +1,9 @@
 <p>名前 : <%= @user.name %></p>
-<p>プロフィール画像 : 
+<p>プロフィール画像 : </p>
 <% if @user.profile_image.present? %>
-<%= image_tag @user.profile_image.url %></p>
+  <%= image_tag @user.profile_image.url %>
+<% else %>
+  <%= image_tag "default.jpg" %>
 <% end %>
 <p>自己紹介 : <%= @user.self_introduciton %></p>
 
