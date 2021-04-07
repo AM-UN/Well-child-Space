@@ -1,4 +1,14 @@
-<p>メールアドレス : <%= @user.email %></p>
-<p>ユーザーを編集</p>
-<p>パスワードを編集</p>
+<p>名前 : <%= @user.name %></p>
+<p>プロフィール画像 : 
+<% if @user.profile_image.present? %>
+<%= image_tag @user.profile_image.url %></p>
+<% end %>
+<p>自己紹介 : <%= @user.self_introduciton %></p>
 
+<% if current_user %>
+  <% if @user.id == current_user.id %>
+    <%= link_to("ユーザーを編集", edit_user_path) %>
+  <% end %>
+<% end %>
+
+<p>パスワードを編集</p>
