@@ -6,5 +6,7 @@ class User < ApplicationRecord
 
   validates :email, length:{minimum:5, maximum:30}, allow_blank: true
 
+  has_many :questions, dependent: :destroy
+
   mount_uploader :profile_image, ImageUploader
 end
