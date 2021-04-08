@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update]
   
   devise_scope :user do
-    get "users/:id/edit/password", to: "devise/registrations#edit"
+    get "edit/password", to: "devise/registrations#edit"
   end
 
   resources :questions
