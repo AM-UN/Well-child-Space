@@ -10,7 +10,6 @@
 <% if current_user %>
   <% if @user.id == current_user.id %>
     <%= link_to("ユーザーを編集", edit_user_path) %>
+    <%= link_to("パスワードを編集", "/users/#{@user.id}/edit/password") %>
   <% end %>
 <% end %>
-
-<p>パスワードを編集</p>
