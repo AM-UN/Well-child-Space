@@ -1,5 +1,11 @@
 <% @questions.each do |question| %>
-  <%= link_to(question.question_content, "/questions/#{question.id}") %>
+  <% if question.user.profile_image.present? %>
+    <%= image_tag question.user.profile_image.url %>
+  <% else %>
+    <%= image_tag "default.jpg", size: "120x80" %>
+  <% end %>
+  <%= link_to(question.user.name, user_path(question.user.id)) %>
+  <%= link_to(question.question_content, question_path(question.id)) %>
   <% if question.question_image.present? %>
     <%= image_tag question.question_image.url %>
   <% end %>
