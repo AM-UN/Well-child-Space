@@ -1,3 +1,11 @@
+<% if @user.profile_image.present? %>
+  <%= image_tag @user.profile_image.url %>
+<% else %>
+  <%= image_tag "default.jpg", size: "120x80" %>
+<% end %>
+
+<%= link_to(@user.name,"/users/#{@user.id}") %>
+
 <%= @question.question_content %>
 <% if @question.question_image.present? %>
   <%= image_tag @question.question_image.url %>
