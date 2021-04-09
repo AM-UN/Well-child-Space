@@ -22,6 +22,7 @@ class QuestionsController < ApplicationController
   end  
 
   def show
+    @user = User.find_by(id: @question.user_id)
   end
 
   def edit
