@@ -14,7 +14,7 @@ class AnswersController < ApplicationController
     @answer.question_id = params[:id]
     
     if @answer.save
-      redirect_to(questions_path)
+      redirect_to(question_path)
     else
       render action: :new
     end
