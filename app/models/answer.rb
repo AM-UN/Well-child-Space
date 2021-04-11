@@ -6,6 +6,9 @@ class Answer < ApplicationRecord
   validates :question_id, presence: true
   validates :answer_content, presence: true, length:{maximum:800}
 
-  mount_uploader :answer_image, ImageUploader
+  def user
+    return User.find_by(id:self.user_id)
+  end
 
+  mount_uploader :answer_image, ImageUploader
 end
