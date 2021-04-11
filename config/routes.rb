@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :edit, :update]
   resources :questions
-  resources :answers, only: [:edit, :update]
+  resources :answers, only: [:edit, :update, :destroy]
   
   post "questions/:id", to: "answers#create"
   

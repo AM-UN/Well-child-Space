@@ -1,6 +1,6 @@
 class AnswersController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_answer, only: [:edit, :update]
+  before_action :set_answer, only: [:edit, :update, :destroy]
 
   def new
     @answer = Answer.new
@@ -32,6 +32,11 @@ class AnswersController < ApplicationController
     end
   end
 
+  def destroy  
+    if @answer.destroy
+      redirect_to(question_path(@answer.question_id))
+    end
+  end
 
   private
 
