@@ -32,6 +32,10 @@
     <%= image_tag answer.answer_image.url %>
   <% end %>
   <%= answer.updated_at.strftime("%Y年 %m月 %d日 %H:%M") %>
+
+  <% if current_user %>
+    <%= link_to '編集する', "/answers/#{answer.id}/edit" %> 
+  <% end %>
 <% end %>
 
 
@@ -43,7 +47,7 @@
   　<%= form.label :answer_image, "画像をアップロード" %>
     <%= form.file_field :answer_image %>
 
-    <%= form.submit "投稿する" %>
+    <%= form.submit "回答" %>
     
   <% end %>
 </div>

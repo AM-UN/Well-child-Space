@@ -1,0 +1,25 @@
+<% if @question.user.profile_image.present? %>
+  <%= image_tag @question.user.profile_image.url %>
+<% else %>
+  <%= image_tag "default.jpg", size: "120x80" %>
+<% end %>
+
+<%= link_to(@question.user.name, user_path(@question.user.id)) %>
+
+<%= @question.question_content %>
+<% if @question.question_image.present? %>
+  <%= image_tag @question.question_image.url %>
+<% end %>
+<%= @question.updated_at.strftime("%Y年 %m月 %d日 %H:%M") %>
+
+
+<%= form_with model: @answer, local: true do |form| %>
+  <%= form.label :answer_content, "回答する" %>
+  <%= form.text_area :answer_content, autofocus: true %>
+
+　<%= form.label :answer_image, "画像をアップロード" %>
+  <%= form.file_field :answer_image %>
+
+  <%= form.submit "編集完了" %>
+  
+<% end %>
