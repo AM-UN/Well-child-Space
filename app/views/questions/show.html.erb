@@ -39,16 +39,17 @@
   <% end %>
 <% end %>
 
+<% if current_user %>
+  <div id="answer">
+    <%= form_with model:@answer, local: true do |form| %>
+      <%= form.label :answer_content, "回答する" %>
+      <%= form.text_area :answer_content %>
 
-<div id="answer">
-  <%= form_with model:@answer, local: true do |form| %>
-    <%= form.label :answer_content, "回答する" %>
-    <%= form.text_area :answer_content %>
+    　<%= form.label :answer_image, "画像をアップロード" %>
+      <%= form.file_field :answer_image %>
 
-  　<%= form.label :answer_image, "画像をアップロード" %>
-    <%= form.file_field :answer_image %>
-
-    <%= form.submit "回答" %>
-    
-  <% end %>
-</div>
+      <%= form.submit "回答" %>
+      
+    <% end %>
+  </div>
+<% end %>
