@@ -35,6 +35,7 @@
 
   <% if current_user %>
     <%= link_to '編集する', "/answers/#{answer.id}/edit" %> 
+    <%= link_to '削除する', "/answers/#{answer.id}", method: :delete %> 
   <% end %>
 <% end %>
 
