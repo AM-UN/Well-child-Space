@@ -10,5 +10,9 @@ class Answer < ApplicationRecord
     return User.find_by(id:self.user_id)
   end
 
+  def question
+    return Question.find_by(id:self.question_id)
+  end
+
   mount_uploader :answer_image, ImageUploader
 end
