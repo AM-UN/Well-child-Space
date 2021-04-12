@@ -12,6 +12,19 @@
 <% end %>
 <%= @question.updated_at.strftime("%Y年 %m月 %d日 %H:%M") %>
 
+<% if current_user and Favorite.find_by(user_id:current_user.id, question_id:@question.id) %>
+  <%= link_to( "/favorites/#{@question.id}/destroy", {method: "delete"}) do %>
+    <i class="fas fa-heart"></i>
+  <% end %>
+<% else %>
+  <%= link_to("/favorites/#{@question.id}/create", {method: "post"}) do %>
+    <i class="far fa-heart"></i>
+  <% end %>
+<% end %>
+
+<span><%= @favorites_count %>人がお気に入り</span>
+
+
 <% if current_user %>
   <% if @question.user_id == current_user.id %>
     <%= link_to '編集する', edit_question_path %> 
