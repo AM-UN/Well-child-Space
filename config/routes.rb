@@ -15,5 +15,7 @@ Rails.application.routes.draw do
   resources :answers, only: [:edit, :update, :destroy]
   
   post "questions/:id", to: "answers#create"
+  post "favorites/:question_id/create", to: "favorites#create"
+  delete "favorites/:question_id/destroy" => "favorites#destroy"
   
 end

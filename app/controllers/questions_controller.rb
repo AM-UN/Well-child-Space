@@ -23,6 +23,7 @@ class QuestionsController < ApplicationController
 
   def show
     @answers = @question.answers
+    @favorites_count = Favorite.where(question_id: @question.id).count
   end
 
   def edit
