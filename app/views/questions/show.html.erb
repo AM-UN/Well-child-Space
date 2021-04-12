@@ -13,8 +13,10 @@
 <%= @question.updated_at.strftime("%Y年 %m月 %d日 %H:%M") %>
 
 <% if current_user %>
-  <%= link_to '編集する', edit_question_path %> 
-  <%= link_to '削除する', question_path, method: :delete %> 
+  <% if @question.user_id == current_user.id %>
+    <%= link_to '編集する', edit_question_path %> 
+    <%= link_to '削除する', question_path, method: :delete %> 
+  <% end %>
 <% end %>
 
 
@@ -34,8 +36,10 @@
   <%= answer.updated_at.strftime("%Y年 %m月 %d日 %H:%M") %>
 
   <% if current_user %>
-    <%= link_to '編集する', "/answers/#{answer.id}/edit" %> 
-    <%= link_to '削除する', "/answers/#{answer.id}", method: :delete %> 
+    <% if answer.user_id == current_user.id %>
+      <%= link_to '編集する', "/answers/#{answer.id}/edit" %> 
+      <%= link_to '削除する', "/answers/#{answer.id}", method: :delete %> 
+    <% end %>
   <% end %>
 <% end %>
 
