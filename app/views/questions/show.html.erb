@@ -14,15 +14,15 @@
 
 <% if current_user and Favorite.find_by(user_id:current_user.id, question_id:@question.id) %>
   <%= link_to( "/favorites/#{@question.id}/destroy", {method: "delete"}) do %>
-    <i class="fas fa-heart"></i>
+    <i class="fas fa-smile"></i>
   <% end %>
 <% else %>
   <%= link_to("/favorites/#{@question.id}/create", {method: "post"}) do %>
-    <i class="far fa-heart"></i>
+    <i class="far fa-smile"></i>
   <% end %>
 <% end %>
 
-<span><%= @favorites_count %>人がお気に入り</span>
+<span><%= @favorites_count %>人が応援</span>
 
 
 <% if current_user %>
