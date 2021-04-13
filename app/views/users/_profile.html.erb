@@ -1,0 +1,15 @@
+<p>名前 : <%= @user.name %></p>
+<p>プロフィール画像 : </p>
+<% if @user.profile_image.present? %>
+  <%= image_tag @user.profile_image.url %>
+<% else %>
+  <%= image_tag "default.jpg", size: "120x80" %>
+<% end %>
+<p>自己紹介 : <%= @user.self_introduciton %></p>
+
+<% if current_user %>
+  <% if @user.id == current_user.id %>
+    <%= link_to("ユーザーを編集", edit_user_path) %>
+    <%= link_to("パスワードの変更", "/edit/password") %>
+  <% end %>
+<% end %>
