@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :questions, dependent: :destroy
   has_many :answers, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :interests, dependent: :destroy
 
   validates :email, presence: true, uniqueness: true, length:{minimum:5, maximum:30}, allow_blank: true
   validates :password, presence: true, length:{minimum:6, maximum:20}, allow_blank: true
