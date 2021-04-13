@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_11_213842) do
+ActiveRecord::Schema.define(version: 2021_04_13_041546) do
 
   create_table "answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -30,6 +30,15 @@ ActiveRecord::Schema.define(version: 2021_04_11_213842) do
     t.datetime "updated_at", null: false
     t.index ["question_id"], name: "index_favorites_on_question_id"
     t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
+  create_table "interests", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "answer_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["answer_id"], name: "index_interests_on_answer_id"
+    t.index ["user_id"], name: "index_interests_on_user_id"
   end
 
   create_table "questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -60,4 +69,6 @@ ActiveRecord::Schema.define(version: 2021_04_11_213842) do
   add_foreign_key "answers", "users"
   add_foreign_key "favorites", "questions"
   add_foreign_key "favorites", "users"
+  add_foreign_key "interests", "answers"
+  add_foreign_key "interests", "users"
 end
