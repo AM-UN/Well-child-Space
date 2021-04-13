@@ -14,5 +14,9 @@ class User < ApplicationRecord
   validates :name, presence: true, length:{maximum:15}, allow_blank: true
   validates :self_introduciton, presence: true, length:{maximum:250}, allow_blank: true
 
+  def questions
+    return Question.where(user_id:self.id).order(created_at: :desc)
+  end
+
   mount_uploader :profile_image, ImageUploader
 end
