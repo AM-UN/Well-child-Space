@@ -3,7 +3,7 @@
 <% if @user.profile_image.present? %>
   <%= image_tag @user.profile_image.url %>
 <% else %>
-  <%= image_tag "default.jpg" %>
+  <%= image_tag "default.jpg", size: "120x80" %>
 <% end %>
 <p>自己紹介 : <%= @user.self_introduciton %></p>
 
@@ -13,3 +13,43 @@
     <%= link_to("パスワードの変更", "/edit/password") %>
   <% end %>
 <% end %>
+
+<%= link_to("質問", user_path) %>
+
+<% @user.questions.each do |question| %>
+  <p>質問</p>
+  <% if @user.profile_image.present? %>
+    <%= image_tag @user.profile_image.url %>
+  <% else %>
+    <%= image_tag "default.jpg", size: "120x80" %>
+  <% end %>
+  <%= link_to(question.user.name, user_path) %>
+  <%= link_to(question.question_content, question_path(question.id)) %>
+  <% if question.question_image.present? %>
+    <%= image_tag question.question_image.url %>
+  <% end %>
+  <%= question.updated_at.strftime("%Y年 %m月 %d日 %H:%M") %>
+
+  <% if question.answers.present? %>
+    <p>回答</p>
+    <% @answers = question.answers %>
+    <% @answers.each do |answer| %>
+      <% if answer.user.profile_image.present? %>
+        <%= image_tag answer.user.profile_image.url %>
+      <% else %>
+        <%= image_tag "default.jpg", size: "120x80" %>
+      <% end %>
+      <%= link_to(answer.user.name, user_path(answer.user.id)) %>
+      <%= answer.answer_content %>
+      <% if answer.answer_image.present? %>
+        <%= image_tag answer.answer_image.url %>
+      <% end %>
+    <% end %>
+  <% end %>
+
+
+<% end %>
+
+
+
+  
