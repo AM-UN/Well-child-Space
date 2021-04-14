@@ -23,5 +23,6 @@ Rails.application.routes.draw do
   delete "interests/:answer_id/destroy" => "interests#destroy"
 
   get "users/:id/answers", to: "users#user_answers"
+  get "users/:id/favorites", to: "users#user_favorites"
    
 end
