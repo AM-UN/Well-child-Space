@@ -1,0 +1,37 @@
+<%= render partial: 'profile' %>
+
+<%= link_to("質問", user_path) %>
+<%= link_to("回答", "/users/#{@user.id}/answers") %>
+
+<% @answers.each do |answer| %>
+  <p>質問</p>
+  <% if answer.question.user.profile_image.present? %>
+    <%= image_tag answer.question.user.profile_image.url %>
+  <% else %>
+    <%= image_tag "default.jpg", size: "120x80" %>
+  <% end %>
+  <%= link_to(answer.question.user.name, user_path(answer.question.user_id)) %>
+  <%= link_to(answer.question.question_content, question_path(answer.question.id)) %>
+  <% if answer.question.question_image.present? %>
+    <%= image_tag answer.question.question_image.url %>
+  <% end %>
+  <%= answer.question.updated_at.strftime("%Y年 %m月 %d日 %H:%M") %>
+
+
+  <p>回答</p> 
+  <% if answer.user.profile_image.present? %>
+    <%= image_tag answer.user.profile_image.url %>
+  <% else %>
+    <%= image_tag "default.jpg", size: "120x80" %>
+  <% end %>
+  <%= link_to(answer.user.name, user_path(answer.user.id)) %>
+  <%= answer.answer_content %>
+  <% if answer.answer_image.present? %>
+    <%= image_tag answer.answer_image.url %>
+  <% end %>
+
+<% end %>
+
+
+
+  
