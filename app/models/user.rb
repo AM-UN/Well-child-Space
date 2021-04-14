@@ -18,5 +18,9 @@ class User < ApplicationRecord
     return Question.where(user_id:self.id).order(created_at: :desc)
   end
 
+  def favorites
+    return Favorite.where(user_id:self.id).order(created_at: :desc)
+  end
+
   mount_uploader :profile_image, ImageUploader
 end

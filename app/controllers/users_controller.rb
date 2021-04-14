@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :update]
   before_action :ensure_correct_user, only: [:edit, :update]
-  before_action :set_user, only: [:show, :edit, :update, :user_answers]
+  before_action :set_user, only: [:show, :edit, :update, :user_answers, :user_favorites]
 
   def show
   end
@@ -19,6 +19,9 @@ class UsersController < ApplicationController
 
   def user_answers 
     @answers = Answer.where(user_id: @user.id)
+  end 
+
+  def user_favorites 
   end 
 
   def ensure_correct_user

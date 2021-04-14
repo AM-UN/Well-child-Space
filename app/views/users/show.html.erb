@@ -2,6 +2,7 @@
 
 <%= link_to("質問", user_path) %>
 <%= link_to("回答", "/users/#{@user.id}/answers") %>
+<%= link_to("応援した相談", "/users/#{@user.id}/favorites") %>
 
 <% @user.questions.each do |question| %>
   <p>質問</p>
