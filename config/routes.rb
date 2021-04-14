@@ -24,5 +24,6 @@ Rails.application.routes.draw do
 
   get "users/:id/answers", to: "users#user_answers"
   get "users/:id/favorites", to: "users#user_favorites"
+  get "users/:id/interests", to: "users#user_interests"
    
 end
