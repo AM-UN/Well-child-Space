@@ -22,5 +22,6 @@ Rails.application.routes.draw do
   post "interests/:answer_id/create", to: "interests#create"
   delete "interests/:answer_id/destroy" => "interests#destroy"
 
-  
+  get "users/:id/answers", to: "users#user_answers"
+   
 end
