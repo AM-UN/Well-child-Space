@@ -3,6 +3,7 @@
 <%= link_to("質問", user_path) %>
 <%= link_to("回答", "/users/#{@user.id}/answers") %>
 <%= link_to("応援した相談", "/users/#{@user.id}/favorites") %>
+<%= link_to("ためになった回答", "/users/#{@user.id}/interests") %>
 
 <% @user.favorites.each do |favorite| %>
   <p>質問</p>
@@ -31,6 +32,7 @@
       <% if answer.answer_image.present? %>
         <%= image_tag answer.answer_image.url %>
       <% end %>
+      <%= answer.question.updated_at.strftime("%Y年 %m月 %d日 %H:%M") %>
     <% end %>
   <% end %>
 <% end %>
