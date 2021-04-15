@@ -1,0 +1,25 @@
+<header>
+  <div class="header-container">
+    <div class="header-logo">
+      <%= link_to("Well-child-Space", "/") %>
+    </div>
+    <div class="header-list">    
+      <ul>
+      <% if user_signed_in? %>
+        <li><%= link_to("プロフィール", user_path(current_user.id)) %></li>
+        <li><%= link_to("ログアウト", destroy_user_session_path, method: :delete) %></li>
+      <% else %>
+        <li><%= link_to("新規登録", new_user_registration_path) %></li>
+      　<li><%= link_to("ログイン", new_user_session_path) %></li>
+      <% end %>
+        <li>検索</li>
+      </ul>
+    </div>
+  </div>
+</header>
+<div class="header2">
+  <h2>子育ての悩みや疑問はありませんか</h2>
+  <h3><%= link_to("相談する", new_question_path) %></h3>
+</div>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
