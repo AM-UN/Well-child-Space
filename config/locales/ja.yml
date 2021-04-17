@@ -1,0 +1,12 @@
+ja:
+  activerecord:
+    attributes:
+      question:
+        question_content: 相談内容
+        question_image: 画像ファイル
+      answer:
+        answer_content: 相談内容
+        answer_image: 画像ファイル
+  errors:
+    messages:
+      extension_whitelist_error: "の拡張子はjpg、jpeg、gif、pngのみ有効です"

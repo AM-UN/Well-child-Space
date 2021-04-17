@@ -13,8 +13,8 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
     @question.user_id = current_user.id
-  
     if @question.save
+      flash[:notice] = "相談が追加されました"
       redirect_to(questions_path)
     else
       render action: :new
@@ -31,6 +31,7 @@ class QuestionsController < ApplicationController
 
   def update 
     if @question.update(question_params)
+      flash[:notice] = "相談が編集されました"
       redirect_to(questions_path)
     else
       render action: :edit
