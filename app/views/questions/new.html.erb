@@ -1,10 +1,4 @@
-<% if @question.errors.any? %>
-  <ul>
-    <% @question.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
+<%= render 'layouts/error_messages', model: @question %>
 
 <%= form_with model: @question, local: true do |form| %>
   <%= form.label :question_content, "相談内容" %>
