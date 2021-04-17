@@ -38,6 +38,7 @@ class AnswersController < ApplicationController
 
   def destroy  
     if @answer.destroy
+      flash[:notice] = "回答が削除されました"
       redirect_to(question_path(@answer.question_id))
     end
   end
