@@ -40,6 +40,7 @@ class QuestionsController < ApplicationController
 
   def destroy  
     if @question.destroy
+      flash[:notice] = "相談が取り消されました"
       redirect_to(questions_path)
     end
   end
