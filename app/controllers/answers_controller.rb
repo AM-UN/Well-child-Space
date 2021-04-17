@@ -12,9 +12,11 @@ class AnswersController < ApplicationController
     @answer.question_id = params[:id]
     
     if @answer.save
-      redirect_to(question_path)
+      flash[:notice] = "回答が追加されました"
+      redirect_to question_path
     else
-      render action: :new
+      redirect_to question_path, flash:{error:@answer.errors.full_messages}
+    
     end
   end  
 
@@ -26,8 +28,10 @@ class AnswersController < ApplicationController
     @answer.user_id = current_user.id
     @answer.question_id = @answer.question_id
     if @answer.update(answer_params_update)
+      flash[:notice] = "回答が編集されました"
       redirect_to(question_path(@answer.question_id))
     else
+      @question = @answer.question
       render action: :edit
     end
   end

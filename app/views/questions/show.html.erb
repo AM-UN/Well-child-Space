@@ -1,3 +1,11 @@
+<% if flash[:error].present? %>
+  <ul>
+    <% flash[:error].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <% if @question.user.profile_image.present? %>
   <%= image_tag @question.user.profile_image.url %>
 <% else %>
