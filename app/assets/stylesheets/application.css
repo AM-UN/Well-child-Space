@@ -23,7 +23,7 @@ a {
 }
 
 header {
-  background-color: #ffb4b4;
+  background-color: #ffa6a6;
   color: rgb(253, 253, 253);
   height: 90px;
   border-bottom:4px solid rgb(223, 147, 166);
@@ -79,10 +79,17 @@ header {
 }
 
 footer {
-  background-color: #ffb4b4;
+  box-sizing: border-box;
+  background-color: #ffa6a6;
   color: rgb(253, 253, 253);
   text-align: center;
   padding: 15px;
   margin-top: 20px;
+  width: 100%;
+}
+
+#error_explanation {
+  background-color: #f390a0;
+  height: 80px;
   width: 100%;
 }
