@@ -89,7 +89,13 @@ footer {
 }
 
 #error_explanation {
-  background-color: #f390a0;
-  height: 80px;
-  width: 100%;
+  text-align: center;
+
+}
+
+#error_explanation li {
+  list-style: none;
+  padding-top: 3px;
+  color: rgb(250, 127, 127);
+  font-weight: bold;
 }

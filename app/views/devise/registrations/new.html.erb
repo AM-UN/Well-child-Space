@@ -15,7 +15,7 @@
       <div class="label-text">
         <%= f.label :password, "パスワード" %>
         <% if @minimum_password_length %>
-          <span>(<%= @minimum_password_length %>文字以上)</span>
+          <span>(<%= @minimum_password_length %>文字～20文字)</span>
         <% end %><br />
       </div>
       <%= f.password_field :password, autocomplete: "new-password" %>
