@@ -1,13 +1,22 @@
-<%= render 'layouts/error_messages', model: @question %>
+<div class="container">
+  <%= render 'layouts/error_messages', model: @question %>
 
-<%= form_with model: @question, local: true do |form| %>
-  <%= form.label :question_content, "相談内容" %>
-  <%= form.text_area :question_content, autofocus: true %>
+  <%= form_with model: @question, local: true do |form| %>
 
-　<%= form.label :question_image, "画像をアップロード" %>
-  <%= form.file_field :question_image %>
+    <div class="question-content">
+      <%= form.text_area :question_content, placeholder:"相談内容", rows:8 %>
+    </div>
 
-  <%= form.submit "投稿する" %>
-  
-<% end %>
+    <div class="question-image">
+      <div class="label-text">
+      　<%= form.label :question_image, "画像をアップロード" %>
+        <%= form.file_field :question_image %>
+      </div>
+    </div>
 
+    <div class="actions">
+      <%= form.submit "編集を完了する", class: "button" %>
+    </div>
+
+  <% end %>
+</div>
