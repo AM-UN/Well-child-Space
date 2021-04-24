@@ -1,3 +1,5 @@
+<%= render 'layouts/flash' %>
+
 <% @questions.each do |question| %>
   <p>質問</p>
   <% if question.user.profile_image.present? %>
