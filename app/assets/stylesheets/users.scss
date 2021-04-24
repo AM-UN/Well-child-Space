@@ -67,3 +67,7 @@
     }
   }
 }
+
+#registrations-create {
+  @extend #registrations-new;
+}
