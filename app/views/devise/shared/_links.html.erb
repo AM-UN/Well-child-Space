@@ -4,6 +4,7 @@
 <% end %>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+  <span>アカウントをお持ちでない方は</span>
   <%= link_to "新規登録", new_registration_path(resource_name) %><br />
 <% end %>
 
