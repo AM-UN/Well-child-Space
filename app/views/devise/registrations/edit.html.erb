@@ -1,33 +1,33 @@
-<h2>プロフィール編集</h2>
+<div class="container">
+  <h2>パスワード編集</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
+    <div class="field">
+      <div class="label-text">
+        <%= f.label :current_password, "現在のパスワード" %><br />
+      </div>
+      <%= f.password_field :current_password, autocomplete: "current-password" %>
+    </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <div class="field">
+      <div class="label-text">
+        <%= f.label :password, "新しいパスワード" %><br /> 
+      </div>
+      <%= f.password_field :password, autocomplete: "new-password" %>
+    </div>
+
+    <div class="field">
+      <div class="label-text">
+        <%= f.label :password_confirmation, "新しいパスワード(確認用)" %><br />
+      </div>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "編集完了", class: "button" %>
+    </div>
   <% end %>
 
-  
-  <div class="field">
-    <%= f.label :current_password, "現在のパスワード" %> 
-    <br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password, "新しいパスワード" %> 
-    <br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation, "新しいパスワード(確認用)" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "編集完了" %>
-  </div>
-<% end %>
+</div>
