@@ -5,7 +5,7 @@
 <% else %>
   <%= image_tag "default.jpg", size: "120x80" %>
 <% end %>
-<p>自己紹介 : <%= @user.self_introduciton %></p>
+<p>自己紹介 : <%= @user.self_introduction %></p>
 
 <% if current_user %>
   <% if @user.id == current_user.id %>

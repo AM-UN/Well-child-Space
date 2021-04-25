@@ -11,7 +11,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     build_resource(sign_up_params)
     @user.name = "ユーザー"
-    @user.self_introduciton = "よろしくお願いします。"
+    @user.self_introduction = "よろしくお願いします。"
 
     resource.save
     yield resource if block_given?
