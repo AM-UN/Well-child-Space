@@ -1,14 +1,33 @@
-<%= form_with model: @user, local: true do |form| %>
-  <%= form.label :name, "ユーザー名" %>
-  <%= form.text_field :name, autofocus: true %>
+<div class="container">
+  <h2>プロフィール編集</h2>
+  <%= form_with model: @user, local: true do |form| %>
+    <%= render 'layouts/error_messages', model: @user %>
+    
+    <div class="field">
+      <div class="label-text">
+        <%= form.label :name, "ユーザー名(15文字以内)" %>
+      </div>
+      <%= form.text_field :name, autofocus: true, placeholder:"ユーザー名" %>
+    </div>
 
-　<%= form.label :profile_image, "プロフィール画像" %>
-  <%= form.file_field :profile_image %>
+    <div class="user-content">
+      <div class="label-text">
+      　<%= form.label :self_introduction, "自己紹介文" %>
+      </div>
+      <%= form.text_area :self_introduction, placeholder:"自己紹介文", rows:15 %>
+    </div>
 
-  <%= form.label :self_introduction, "自己紹介" %>
-  <%= form.text_area :self_introduction %>
+    <div class="user-image">
+      <div class="label-text">
+      　<%= form.label :profile_image, "プロフィール画像" %>
+      </div>
+      <%= form.file_field :profile_image %>
+    </div>
 
-  <%= form.submit "編集を完了する" %>
-  
-<% end %>
+    <div class="actions">
+      <%= form.submit "編集を完了する", class: "button" %>
+    </div>
+    
+  <% end %>
+</div>
 

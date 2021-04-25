@@ -1,6 +1,10 @@
 ja:
   activerecord:
     attributes:
+      user:
+        name: 名前
+        self_introduction: 自己紹介文
+        profile_image: プロフィール画像
       question:
         question_content: 相談内容
         question_image: 画像ファイル

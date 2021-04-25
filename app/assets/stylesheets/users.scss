@@ -23,14 +23,13 @@
         text-align: left;
         padding: 18px 19% 5px 19%;
         font-size: 14px;
-        font-weight: 700;
-        
+        font-weight: bold;   
       }
 
       input {
         width: 60%;
         padding: 5px;
-        border: 1.5px solid #d7cccc;
+        border: 1.5px solid #a09d9d;
         border-radius: 5px;  
         outline: none; 
       }
@@ -75,4 +74,53 @@
     color: rgb(250, 127, 127);
     font-weight: bold;
   }
+}
+
+#users-edit, #users-update {
+  @extend #registrations-new;
+  .container {
+    .user-content {
+      text-align: center;
+      .label-text {
+        text-align: left;
+        padding: 18px 19% 5px 17%;
+        font-size: 14px;
+        font-weight: bold;   
+      }
+      
+      textarea {
+        width: 60%;
+        font-size: 16px;
+        padding: 5px;
+        border: 1.5px solid #a09d9d;
+        border-radius: 5px;
+        outline: none;
+      }
+      textarea:focus {
+        border: solid 1.5px #313131;
+        outline: none; 
+      }
+    }
+
+    .user-image {
+      text-align: center;
+      .label-text {
+        text-align: left;
+        padding: 18px 19% 10px 17%;
+        font-size: 14px;
+        font-weight: bold;   
+      }   
+    }
+
+    .error-messages {
+      text-align: center;
+      padding-top: 3px;
+      color: rgb(250, 127, 127);
+      font-weight: bold;
+      li {
+        list-style: none;
+      }
+    }  
+  }
+
 }
