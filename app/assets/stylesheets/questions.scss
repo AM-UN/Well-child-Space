@@ -1,6 +1,29 @@
 // Place all the styles related to the questions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@mixin actions {
+  padding: 30px 0 20px 0;
+  text-align: center;
+  .button {
+    width: 50%;
+    border-radius : 5px;        
+    font-size     : 11pt;      
+    cursor        : pointer;     
+    padding       : 7px 5px;  
+    background    : #ffa6a6;     
+    color         : #ffffff;    
+    line-height   : 1em;         
+    transition    : 0.4s;       
+    box-shadow: 1px 2px #a19494;
+    border: 1.5px solid #806a6a
+  }
+  .button:hover {
+    background-color: #eb8b8b;
+    box-shadow    : none;       
+  }
+}
+
 #questions-new, #questions-create, #questions-edit, #questions-update {
   .container {
     .error-messages {
@@ -37,29 +60,10 @@
     }
 
     .actions {
-      padding: 30px 0 20px 0;
-      text-align: center;
-      .button {
-        width: 50%;
-        border-radius : 5px;        
-        font-size     : 11pt;      
-        cursor        : pointer;     
-        padding       : 7px 5px;  
-        background    : #ffa6a6;     
-        color         : #ffffff;    
-        line-height   : 1em;         
-        transition    : 0.4s;       
-        box-shadow: 1px 2px #a19494;
-        border: 1.5px solid #806a6a
-      }
-      .button:hover {
-        background-color: #eb8b8b;
-        box-shadow    : none;       
-      }
+      @include actions;    
     }
   }
 }
-
 
 
 #questions-show {
@@ -78,7 +82,6 @@
         @extend .notice
       }
     }
-
     .question-container {
       width: 800px;
       margin: 0 auto;
@@ -86,19 +89,15 @@
       margin-top: 30px;
       margin-bottom: 35px;
       border-radius: 15px;
-      
       .question_user_informations {
         display: flex;
         text-align: left;
         padding: 1% 0;
         margin: 0 2%;
         border-bottom: 2px solid #ffa6a6;
-     
         .question_user_profile_image {
           border-radius: 50%;
-          
         }
-  
         .question_user_name_and_update_at {
           padding-top: 1%;
           padding-left: 2%;
@@ -107,7 +106,6 @@
           }
         }
       }
-
       .question-answer-informations {
         text-align: left;
         padding: 1%;
@@ -119,10 +117,7 @@
           padding-right: 6px;
         }
       }
-
-      
-      .question_content {
-    
+      .question_content {    
         padding: 1%;
         margin: 3px 2% 0 2%;
         border-bottom: 2px solid #ffa6a6; 
@@ -133,7 +128,6 @@
           padding-top: 7px;
         }
       }
-  
       .question_options {
         padding: 1.2% 3%;
         height: 23px;
@@ -149,12 +143,7 @@
         }
       }
     }
-  
   }
-  
-  
-
-  
   
 
   .answer-container {
@@ -171,8 +160,7 @@
       border-bottom: 2px solid rgb(223, 147, 166);
    
       .answer_user_profile_image {
-        border-radius: 50%;
-        
+        border-radius: 50%;      
       }
   
       .answer_user_name_and_update_at {
@@ -210,8 +198,6 @@
     }
   }
 
-  
-
   #current-answer-container {
     .current-answer-content {
       text-align: center;
@@ -230,36 +216,12 @@
         outline: none; 
       }
     }
-  
     .current-answer-image {
       text-align: center;
       padding-left: 28%;
     }
-  
     .actions {
-      padding: 30px 0 20px 0;
-      text-align: center;
-      .button {
-        width: 50%;
-        border-radius : 5px;        
-        font-size     : 11pt;      
-        cursor        : pointer;     
-        padding       : 7px 5px;  
-        background    : #ffa6a6;     
-        color         : #ffffff;    
-        line-height   : 1em;         
-        transition    : 0.4s;       
-        box-shadow: 1px 2px #a19494;
-        border: 1.5px solid #806a6a
-      }
-      .button:hover {
-        background-color: #eb8b8b;
-        box-shadow    : none;       
-      }
+      @include actions;        
     }
-  }
-
-  
+  } 
 }
-
-
