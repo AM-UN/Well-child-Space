@@ -27,11 +27,17 @@
     </div>
 
     
-    <% if current_user %>
-      <div class="answer-anchor">
-        <%= link_to "回答する", question_path(anchor: "current-answer-container") %>
+    
+      <div class="question-answer-informations">
+        <span><%= @answers.count %>件の回答があります    </span>
+
+        <% if current_user %>
+          <%= link_to "回答する", question_path(anchor: "current-answer-container") %>
+        <% end %>
       </div>  
-    <% end %>
+
+
+    
 
 
 
