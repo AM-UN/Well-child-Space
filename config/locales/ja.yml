@@ -9,7 +9,7 @@ ja:
         question_content: 相談内容
         question_image: 画像ファイル
       answer:
-        answer_content: 相談内容
+        answer_content: 回答内容
         answer_image: 画像ファイル
   errors:
     messages:

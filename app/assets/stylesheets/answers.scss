@@ -1,3 +1,92 @@
 // Place all the styles related to the answers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#answers-edit, #answers-update {
+  .question-container {
+    width: 800px;
+    margin: 0 auto;
+    border: 2px solid #ffa6a6;
+    margin-top: 30px;
+    margin-bottom: 35px;
+    border-radius: 15px;
+    .question_user_informations {
+      display: flex;
+      text-align: left;
+      padding: 1% 0;
+      margin: 0 2%;
+      border-bottom: 2px solid #ffa6a6;
+      .question_user_profile_image {
+        border-radius: 50%;
+      }
+      .question_user_name_and_update_at {
+        padding-top: 1%;
+        padding-left: 2%;
+        li {
+          list-style: none;
+        }
+      }
+    }
+
+    .question_content {    
+      padding: 1%;
+      margin: 3px 2% 0 2%;
+      .question_text {
+        text-align: left;
+      }
+      .question_image {
+        padding-top: 7px;
+      }
+    }
+  }
+
+  .answer-container {
+    text-align: center;
+    .error-messages {
+      padding-bottom: 13px;
+      color: rgb(250, 127, 127);
+      font-weight: bold;
+    }
+    .answer-content {
+      textarea {
+        width: 700px;
+        font-size: 16px;
+        margin-bottom: 20px;
+        padding: 5px;
+        border: 1.5px solid #a09d9d;
+        border-radius: 5px;
+        outline: none;
+      }
+      textarea:focus {
+        border: solid 1.5px #313131;
+        outline: none; 
+      }
+    }
+
+    .answer-image {
+      text-align: center;
+      padding-left: 28%;
+    }
+
+    .actions {
+      padding: 30px 0 20px 0;
+      text-align: center;
+      .button {
+        width: 600px;
+        border-radius : 5px;        
+        font-size     : 11pt;      
+        cursor        : pointer;     
+        padding       : 7px 5px;  
+        background    : #ffa6a6;     
+        color         : #ffffff;    
+        line-height   : 1em;         
+        transition    : 0.4s;       
+        box-shadow: 1px 2px #a19494;
+        border: 1.5px solid #806a6a
+      }
+      .button:hover {
+        background-color: #eb8b8b;
+        box-shadow    : none;       
+      }
+    }
+  }
+}
