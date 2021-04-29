@@ -1,27 +1,49 @@
-<%= render 'layouts/error_messages', model: @answer %>
-
-<% if @question.user.profile_image.present? %>
-  <%= image_tag @question.user.profile_image.url %>
-<% else %>
-  <%= image_tag "default.jpg", size: "120x80" %>
-<% end %>
-
-<%= link_to(@question.user.name, user_path(@question.user.id)) %>
-
-<%= @question.question_content %>
-<% if @question.question_image.present? %>
-  <%= image_tag @question.question_image.url %>
-<% end %>
-<%= @question.updated_at.strftime("%Y年 %m月 %d日 %H:%M") %>
-
-
-<%= form_with model: @answer, local: true do |form| %>
-  <%= form.label :answer_content, "回答する" %>
-  <%= form.text_area :answer_content, autofocus: true %>
-
-　<%= form.label :answer_image, "画像をアップロード" %>
-  <%= form.file_field :answer_image %>
-
-  <%= form.submit "編集完了" %>
+<div class="question-container">
+  <div class="question_user_informations">  
+    <% if @question.user.profile_image.present? %>
+      <%= image_tag @question.user.profile_image.thumb65.url, class: "question_user_profile_image" %>
+    <% else %>
+      <%= image_tag "default.jpg", size: "65x65", class: "question_user_profile_image" %>
+    <% end %>
   
-<% end %>
+    <div class="question_user_name_and_update_at">
+      <ul>
+        <li><%= link_to(@question.user.name, user_path(@question.user.id)) %></li>
+        <li><span>質問日時 <%= @question.updated_at.strftime("%Y年 %m月 %d日 %H:%M") %></span></li>
+      </ul>      
+    </div>
+  </div>
+
+  <div class="question_content">
+    <div class="question_text">
+      <%= @question.question_content %>
+    </div>
+    <div class="question_image">
+      <% if @question.question_image.present? %>
+        <%= image_tag @question.question_image.url %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="answer-container">
+  <div class="error-messages">
+    <%= render 'layouts/error_messages', model: @answer %>
+  </div>
+  
+  <%= form_with model: @answer, local: true do |form| %>
+    <div class="answer-content">
+      <%= form.text_area :answer_content, autofocus: true, placeholder:"回答内容", rows:8 %>
+    </div>
+    <div class="answer-image">
+    　<%= form.label :answer_image, "画像をアップロード" %>
+      <%= form.file_field :answer_image %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit "編集を完了する", class: "button" %>
+    </div>
+  <% end %>
+</div>
