@@ -108,11 +108,16 @@
         }
       }
 
-      .answer-anchor {
+      .question-answer-informations {
         text-align: left;
         padding: 1%;
         margin: 0 2%;
         border-bottom: 2px solid #ffa6a6;
+        span {
+          font-weight: bold;
+          color: #ffa6a6;
+          padding-right: 6px;
+        }
       }
 
       
