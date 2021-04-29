@@ -15,8 +15,7 @@ class AnswersController < ApplicationController
       flash[:notice] = "回答が追加されました"
       redirect_to question_path
     else
-      redirect_to question_path(anchor: "current-answer-container"), flash:{error:@answer.errors.full_messages}
-    
+      redirect_to question_path(anchor: "current-answer-content"), flash:{error:@answer.errors.full_messages}
     end
   end  
 
