@@ -20,7 +20,7 @@
     <span><%= @answers.count %>件の回答があります</span>
 
     <% if current_user %>
-      <%= link_to "回答する", question_path(anchor: "current-answer-container") %>
+      <%= link_to "回答する", question_path(anchor: "current-answer-content") %>
     <% end %>
   </div>  
 
@@ -118,9 +118,9 @@
 
 
 <% if current_user %>
-  <div id="current-answer-container">
+  <div class="current-answer-container">
     <%= form_with model:@answer, local: true do |form| %>
-      <div class="current-answer-content">       
+      <div id="current-answer-content">       
         <% if flash[:error].present? %>
           <div class="error_messages">
             <ul>

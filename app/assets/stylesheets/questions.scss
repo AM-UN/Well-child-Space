@@ -191,8 +191,8 @@
     }
   }
 
-  #current-answer-container {
-    .current-answer-content {
+  .current-answer-container {
+    #current-answer-content {
       @include textarea-design($width:700px);
       text-align: center;
       .error_messages {
