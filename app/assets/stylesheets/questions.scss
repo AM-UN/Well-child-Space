@@ -91,7 +91,7 @@
         display: flex;
         text-align: left;
         padding: 1% 0;
-        margin: 0px 2%;
+        margin: 0 2%;
         border-bottom: 2px solid #ffa6a6;
      
         .question_user_profile_image {
@@ -107,6 +107,14 @@
           }
         }
       }
+
+      .answer-anchor {
+        text-align: left;
+        padding: 1%;
+        margin: 0 2%;
+        border-bottom: 2px solid #ffa6a6;
+      }
+
       
       .question_content {
     
@@ -199,7 +207,7 @@
 
   
 
-  .current-answer-container {
+  #current-answer-container {
     .current-answer-content {
       text-align: center;
       textarea {
