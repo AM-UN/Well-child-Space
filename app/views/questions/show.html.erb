@@ -1,77 +1,66 @@
-<div class="flash-and-error-container">
-  <%= render 'layouts/flash' %>
-  <% if flash[:error].present? %>
-    <div class="error_messages">
+<%= render 'layouts/flash' %>
+
+<div class="question-container">
+  <div class="question_user_informations">  
+    <% if @question.user.profile_image.present? %>
+      <%= image_tag @question.user.profile_image.thumb65.url, class: "question_user_profile_image" %>
+    <% else %>
+      <%= image_tag "default.jpg", size: "65x65", class: "question_user_profile_image" %>
+    <% end %>
+  
+    <div class="question_user_name_and_update_at">
       <ul>
-        <% flash[:error].each do |error| %>
-          <li><%= error %></li>
-        <% end %>
-      </ul>
+        <li><%= link_to(@question.user.name, user_path(@question.user.id)) %></li>
+        <li><span>質問日時 <%= @question.updated_at.strftime("%Y年 %m月 %d日 %H:%M") %></span></li>
+      </ul>      
     </div>
-  <% end %>
-
-  <div class="question-container">
-    <div class="question_user_informations">  
-      <% if @question.user.profile_image.present? %>
-        <%= image_tag @question.user.profile_image.thumb65.url, class: "question_user_profile_image" %>
-      <% else %>
-        <%= image_tag "default.jpg", size: "65x65", class: "question_user_profile_image" %>
-      <% end %>
+  </div>
     
-      <div class="question_user_name_and_update_at">
-        <ul>
-          <li><%= link_to(@question.user.name, user_path(@question.user.id)) %></li>
-          <li><span>質問日時 <%= @question.updated_at.strftime("%Y年 %m月 %d日 %H:%M") %></span></li>
-        </ul>      
-      </div>
+  <div class="question-answer-informations">
+    <span><%= @answers.count %>件の回答があります</span>
+
+    <% if current_user %>
+      <%= link_to "回答する", question_path(anchor: "current-answer-container") %>
+    <% end %>
+  </div>  
+
+  <div class="question_content">
+    <div class="question_text">
+      <%= @question.question_content %>
     </div>
-     
-    <div class="question-answer-informations">
-      <span><%= @answers.count %>件の回答があります</span>
-
-      <% if current_user %>
-        <%= link_to "回答する", question_path(anchor: "current-answer-container") %>
-      <% end %>
-    </div>  
-
-    <div class="question_content">
-      <div class="question_text">
-        <%= @question.question_content %>
-      </div>
-      <div class="question_image">
-        <% if @question.question_image.present? %>
-          <%= image_tag @question.question_image.url %>
-        <% end %>
-      </div>
-    </div>
-
-    <div class="question_options">
-      <div class="question_interest">
-        <% if current_user and Favorite.find_by(user_id:current_user.id, question_id:@question.id) %>
-          <%= link_to( "/favorites/#{@question.id}/destroy", {method: "delete"}) do %>
-            <i class="fas fa-smile question-icon"></i>
-          <% end %>
-        <% else %>
-          <%= link_to("/favorites/#{@question.id}/create", {method: "post"}) do %>
-            <i class="far fa-smile question-icon"></i>
-          <% end %>
-        <% end %>
-
-        <span><%= @favorites_count %>人が応援しています</span>
-      </div>
-
-      <% if current_user %>
-        <% if @question.user_id == current_user.id %>
-          <div class="question_edit_and_delete">
-            <%= link_to '編集する', edit_question_path %> 
-            <%= link_to '削除する', question_path, method: :delete %> 
-          </div>
-        <% end %>
+    <div class="question_image">
+      <% if @question.question_image.present? %>
+        <%= image_tag @question.question_image.url %>
       <% end %>
     </div>
+  </div>
 
+  <div class="question_options">
+    <div class="question_interest">
+      <% if current_user and Favorite.find_by(user_id:current_user.id, question_id:@question.id) %>
+        <%= link_to( "/favorites/#{@question.id}/destroy", {method: "delete"}) do %>
+          <i class="fas fa-smile question-icon"></i>
+        <% end %>
+      <% else %>
+        <%= link_to("/favorites/#{@question.id}/create", {method: "post"}) do %>
+          <i class="far fa-smile question-icon"></i>
+        <% end %>
+      <% end %>
+
+      <span><%= @favorites_count %>人が応援しています</span>
+    </div>
+
+    <% if current_user %>
+      <% if @question.user_id == current_user.id %>
+        <div class="question_edit_and_delete">
+          <%= link_to '編集する', edit_question_path %> 
+          <%= link_to '削除する', question_path, method: :delete %> 
+        </div>
+      <% end %>
+    <% end %>
   </div>
 </div>
+
 
 
 <% @answers.each do |answer| %>
@@ -128,23 +117,32 @@
 <% end %>
 
 
-  <% if current_user %>
-    <div id="current-answer-container">
-      <%= form_with model:@answer, local: true do |form| %>
-        <div class="current-answer-content">       
-          <%= form.text_area :answer_content, placeholder:"回答する", rows:16 %>
-        </div>
+<% if current_user %>
+  <div id="current-answer-container">
+    <%= form_with model:@answer, local: true do |form| %>
+      <div class="current-answer-content">       
+        <% if flash[:error].present? %>
+          <div class="error_messages">
+            <ul>
+              <% flash[:error].each do |error| %>
+                <li><%= error %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <%= form.text_area :answer_content, placeholder:"回答する", rows:16 %>
+      </div>
 
-        <div class="current-answer-image">
+      <div class="current-answer-image">
+      
+        <%= form.label :answer_image, "画像をアップロード" %>
         
-          <%= form.label :answer_image, "画像をアップロード" %>
-          
-          <%= form.file_field :answer_image %>
-        </div>
+        <%= form.file_field :answer_image %>
+      </div>
 
-        <div class="actions">
-          <%= form.submit "回答", class: "button" %>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
+      <div class="actions">
+        <%= form.submit "回答", class: "button" %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
