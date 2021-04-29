@@ -6,7 +6,7 @@
   padding: 30px 0 20px 0;
   text-align: center;
   .button {
-    width: 50%;
+    width: 600px;
     border-radius : 5px;        
     font-size     : 11pt;      
     cursor        : pointer;     
@@ -24,6 +24,23 @@
   }
 }
 
+@mixin textarea-design($width:800px) {
+  textarea {
+    width: $width;
+    font-size: 16px;
+    margin-top: 25px;
+    margin-bottom: 20px;
+    padding: 5px;
+    border: 1.5px solid #a09d9d;
+    border-radius: 5px;
+    outline: none;
+  }
+  textarea:focus {
+    border: solid 1.5px #313131;
+    outline: none; 
+  }
+}
+
 #questions-new, #questions-create, #questions-edit, #questions-update {
   .container {
     .error-messages {
@@ -38,20 +55,7 @@
 
     .question-content {
       text-align: center;
-      textarea {
-        width: 70%;
-        font-size: 16px;
-        margin-top: 25px;
-        margin-bottom: 20px;
-        padding: 5px;
-        border: 1.5px solid #a09d9d;
-        border-radius: 5px;
-        outline: none;
-      }
-      textarea:focus {
-        border: solid 1.5px #313131;
-        outline: none; 
-      }
+      @include textarea-design;
     }
 
     .question-image {
@@ -189,24 +193,11 @@
 
   #current-answer-container {
     .current-answer-content {
+      @include textarea-design($width:700px);
       text-align: center;
       .error_messages {
         color: rgb(250, 127, 127);
         font-weight: bold;
-      }
-      textarea {
-        width: 70%;
-        font-size: 16px;
-        margin-top: 25px;
-        margin-bottom: 20px;
-        padding: 5px;
-        border: 1.5px solid #a09d9d;
-        border-radius: 5px;
-        outline: none;
-      }
-      textarea:focus {
-        border: solid 1.5px #313131;
-        outline: none; 
       }
     }
     .current-answer-image {
