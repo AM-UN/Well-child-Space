@@ -11,7 +11,7 @@ class Question < ApplicationRecord
   end
 
   def answers
-    return Answer.where(question_id:self.id)
+    return Answer.where(question_id:self.id).order(updated_at: :desc).includes(:interests).sort {|a,b| b.interests.count <=> a.interests.count}
   end
 
   mount_uploader :question_image, ImageUploader
