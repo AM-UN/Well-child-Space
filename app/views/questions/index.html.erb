@@ -15,22 +15,21 @@
   <% end %>
 
   <% if question.answers.present? %>
-    <p>回答</p>
-    <% @answers = question.answers %>
-    <% @answers.each do |answer| %>
-      <% if answer.user.profile_image.present? %>
-        <%= image_tag answer.user.profile_image.url %>
-      <% else %>
-        <%= image_tag "default.jpg", size: "120x80" %>
-      <% end %>
-
-      <%= link_to(answer.user.name, user_path(answer.user.id)) %>
-      <%= time_ago_in_words(answer.updated_at) %>に回答
-
-      <%= answer.answer_content.truncate(50) %>
-      <% if answer.answer_image.present? %>
-        <%= image_tag answer.answer_image.url %>
-      <% end %>
+    <% answers = question.answers %>
+    <% answer = answers[0] %>
+    <% if answer.user.profile_image.present? %>
+      <%= image_tag answer.user.profile_image.url %>
+    <% else %>
+      <%= image_tag "default.jpg", size: "120x80" %>
     <% end %>
+
+    <%= link_to(answer.user.name, user_path(answer.user.id)) %>
+    <%= time_ago_in_words(answer.updated_at) %>に回答
+
+    <%= answer.answer_content.truncate(50) %>
+    <% if answer.answer_image.present? %>
+      <%= image_tag answer.answer_image.url %>
+    <% end %>
+    
   <% end %>
 <% end %>
