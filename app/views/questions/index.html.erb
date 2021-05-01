@@ -9,7 +9,7 @@
   <% end %>
   <%= link_to(question.user.name, user_path(question.user.id)) %>
   <%= time_ago_in_words(question.updated_at) %>に相談
-  <%= link_to(question.question_content, question_path(question.id)) %>
+  <%= link_to(question.question_content.truncate(50), question_path(question.id)) %>
   <% if question.question_image.present? %>
     <%= image_tag question.question_image.url %>
   <% end %>
@@ -27,7 +27,7 @@
       <%= link_to(answer.user.name, user_path(answer.user.id)) %>
       <%= time_ago_in_words(answer.updated_at) %>に回答
 
-      <%= answer.answer_content %>
+      <%= answer.answer_content.truncate(50) %>
       <% if answer.answer_image.present? %>
         <%= image_tag answer.answer_image.url %>
       <% end %>
