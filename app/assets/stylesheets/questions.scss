@@ -211,6 +211,12 @@
 }
 
 #questions-index {
+  .notice {
+    text-align: center;
+    color: #fa7f7f;
+    font-weight: bold;
+    padding-top: 30px;
+  }
   .question-answer-container {
     width: 800px;
     margin: 0 auto;
