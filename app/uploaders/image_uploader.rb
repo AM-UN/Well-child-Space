@@ -7,6 +7,11 @@ class ImageUploader < CarrierWave::Uploader::Base
   version :thumb65 do
     process resize_and_pad: [65, 65, "white"]
   end
+
+  version :thumb80 do
+    process resize_and_pad: [80, 80, "white"]
+  end
+
   # Choose what kind of storage to use for this uploader:
   storage :file
   # storage :fog
