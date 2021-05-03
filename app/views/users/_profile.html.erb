@@ -1,15 +1,23 @@
-<p>名前 : <%= @user.name %></p>
-<p>プロフィール画像 : </p>
-<% if @user.profile_image.present? %>
-  <%= image_tag @user.profile_image.url %>
-<% else %>
-  <%= image_tag "default.jpg", size: "120x80" %>
-<% end %>
-<p>自己紹介 : <%= @user.self_introduction %></p>
-
-<% if current_user %>
-  <% if @user.id == current_user.id %>
-    <%= link_to("ユーザーを編集", edit_user_path) %>
-    <%= link_to("パスワードの変更", "/edit/password") %>
+<div class="profile-container">
+  <div class="user-informations">
+    <% if @user.profile_image.present? %>
+      <%= image_tag @user.profile_image.thumb80.url, class: "user-image" %>
+    <% else %>
+      <%= image_tag "default.jpg", size: "80x80", class: "user-image" %>
+    <% end %>
+    <div class="name">
+      <%= @user.name %>
+    </div>
+  </div>
+  <div class="self-introduction">
+    <p>自己紹介文 : <%= @user.self_introduction %></p>
+  </div>
+  <% if current_user %>
+    <% if @user.id == current_user.id %>
+      <div class="user-edit-change">
+        <span><%= link_to("ユーザーを編集", edit_user_path) %>&nbsp</span>
+        <span><%= link_to("パスワードの変更", "/edit/password") %></span>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
+</div>
