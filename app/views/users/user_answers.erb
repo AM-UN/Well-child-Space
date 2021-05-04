@@ -10,10 +10,10 @@
       <% end %>
 
       <div class="question_user_name_and_update_at">
-      <ul>
-        <li><%= link_to(answer.question.user.name, user_path(answer.question.user_id)) %></li>
-        <li><%= answer.question.updated_at.strftime("%Y年 %m月 %d日 %H:%M") %></li>
-      </ul>
+        <ul>
+          <li><%= link_to(answer.question.user.name, user_path(answer.question.user_id)) %></li>
+          <li><span><%= time_ago_in_words(answer.question.updated_at) %>に相談</span></li>
+        </ul>
       </div>
     </div>
 
