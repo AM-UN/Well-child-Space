@@ -1,38 +1,36 @@
 <%= render partial: 'profile' %>
 
-<%= link_to("質問", user_path) %>
-<%= link_to("回答", "/users/#{@user.id}/answers") %>
-<%= link_to("応援した相談", "/users/#{@user.id}/favorites") %>
-<%= link_to("ためになった回答", "/users/#{@user.id}/interests") %>
-
 <% @interests.each do |interest| %>
-  <p>質問</p>
-  <% if interest.answer.question.user.profile_image.present? %>
-    <%= image_tag interest.answer.question.user.profile_image.url %>
-  <% else %>
-    <%= image_tag "default.jpg", size: "120x80" %>
-  <% end %>
-  <%= link_to(interest.answer.question.user.name, user_path(interest.answer.question.user_id)) %>
-  <%= link_to(interest.answer.question.question_content, question_path(interest.answer.question.id)) %>
-  <% if interest.answer.question.question_image.present? %>
-    <%= image_tag interest.answer.question.question_image.url %>
-  <% end %>
-  <%= interest.answer.question.updated_at.strftime("%Y年 %m月 %d日 %H:%M") %>
+  <div class="question-answer-container">
+    <div class="question_user_informations">
+      <% if interest.answer.question.user.profile_image.present? %>
+        <%= image_tag interest.answer.question.user.profile_image.thumb65.url, class: "question_user_profile_image" %>
+      <% else %>
+        <%= image_tag "default.jpg", size: "65x65", class: "question_user_profile_image" %>
+      <% end %>
 
-  <p>回答</p> 
-  <% if interest.answer.user.profile_image.present? %>
-    <%= image_tag interest.answer.user.profile_image.url %>
-  <% else %>
-    <%= image_tag "default.jpg", size: "120x80" %>
-  <% end %>
-  <%= link_to(interest.answer.user.name, user_path(interest.answer.user.id)) %>
-  <%= interest.answer.answer_content %>
-  <% if interest.answer.answer_image.present? %>
-    <%= image_tag interest.answer.answer_image.url %>
-  <% end %>
-  <%= interest.answer.question.updated_at.strftime("%Y年 %m月 %d日 %H:%M") %>
-<% end %>
-
-
-
+      <div class="question_user_name_and_update_at">
+        <ul>
+          <li><%= link_to(interest.answer.question.user.name, user_path(interest.answer.question.user_id)) %></li>
+          <li><%= interest.answer.question.updated_at.strftime("%Y年 %m月 %d日 %H:%M") %></li>
+        </ul>
+      </div>
+    </div>
   
+    <div class="question_content">
+      <%= link_to(interest.answer.question.question_content, question_path(interest.answer.question.id)) %>
+      <div class="question_image">
+        <% if interest.answer.question.question_image.present? %>
+          <%= image_tag interest.answer.question.question_image.url %>
+        <% end %>
+      </div>
+    </div>
+  
+    <div class="answer_user_name_and_update_at">
+      <%= link_to(interest.answer.user.name, user_path(interest.answer.user.id)) %><span>が<%= time_ago_in_words(interest.answer.updated_at) %>に回答</span>    
+    </div>
+    <div class="answer_content">
+      <%= interest.answer.answer_content.truncate(55) %>
+    </div>
+  </div>
+<% end %>
