@@ -125,7 +125,7 @@
 
 }
 
-#users-show {
+#users-show, #users-user_favorites {
   .notice {
     text-align: center;
     color: #fa7f7f;
@@ -166,7 +166,6 @@
       margin: 11px 20px;
     }
   }
-
   .user-tabs {
     margin: 0 auto;
     border: 2px solid #a09d9d80;
@@ -184,8 +183,6 @@
   .user-tabs li:hover {
     background-color: #a09d9d40;
   }
-  
-
   .question-answer-container {
     width: 800px;
     margin: 0 auto;
@@ -234,5 +231,4 @@
       margin: 3px 2% 0 2%;
     }
   }   
-  
 }

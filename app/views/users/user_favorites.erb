@@ -1,42 +1,41 @@
 <%= render partial: 'profile' %>
 
-<%= link_to("質問", user_path) %>
-<%= link_to("回答", "/users/#{@user.id}/answers") %>
-<%= link_to("応援した相談", "/users/#{@user.id}/favorites") %>
-<%= link_to("ためになった回答", "/users/#{@user.id}/interests") %>
-
 <% @user.favorites.each do |favorite| %>
-  <p>質問</p>
-  <% if favorite.question.user.profile_image.present? %>
-    <%= image_tag favorite.question.profile_image.url %>
-  <% else %>
-    <%= image_tag "default.jpg", size: "120x80" %>
-  <% end %>
-  <%= link_to(favorite.question.user.name, user_path) %>
-  <%= link_to(favorite.question.question_content, question_path(favorite.question.id)) %>
-  <% if favorite.question.question_image.present? %>
-    <%= image_tag favorite.question.question_image.url %>
-  <% end %>
-  <%= favorite.question.updated_at.strftime("%Y年 %m月 %d日 %H:%M") %>
-
-  <% if favorite.question.answers.present? %>
-    <p>回答</p>
-    <% favorite.question.answers.each do |answer| %>
-      <% if answer.user.profile_image.present? %>
-        <%= image_tag answer.user.profile_image.url %>
+  <div class="question-answer-container">
+    <div class="question_user_informations">
+      <% if favorite.question.user.profile_image.present? %>
+        <%= image_tag favorite.question.user.profile_image.thumb65.url, class: "question_user_profile_image" %>
       <% else %>
-        <%= image_tag "default.jpg", size: "120x80" %>
+        <%= image_tag "default.jpg", size: "65x65", class: "question_user_profile_image" %>
       <% end %>
-      <%= link_to(answer.user.name, user_path(answer.user.id)) %>
-      <%= answer.answer_content %>
-      <% if answer.answer_image.present? %>
-        <%= image_tag answer.answer_image.url %>
-      <% end %>
-      <%= answer.question.updated_at.strftime("%Y年 %m月 %d日 %H:%M") %>
-    <% end %>
-  <% end %>
-<% end %>
 
-
-
+      <div class="question_user_name_and_update_at">
+        <ul>
+          <li><%= link_to(favorite.question.user.name, user_path) %></li>
+          <li><%= favorite.question.updated_at.strftime("%Y年 %m月 %d日 %H:%M") %></li>
+        </ul>
+      </div>
+    </div>
   
+    <div class="question_content">
+      <%= link_to(favorite.question.question_content, question_path(favorite.question.id)) %>
+    </div>
+    
+    <div class="question_image">
+      <% if favorite.question.question_image.present? %>
+        <%= image_tag favorite.question.question_image.url %>
+      <% end %>
+    </div>
+ 
+    <% if favorite.question.answers.present? %>
+      <% answer = favorite.question.answers[0] %>
+      <div class="answer_user_name_and_update_at">
+        <%= link_to(answer.user.name, user_path(answer.user.id)) %><span>が<%= time_ago_in_words(answer.updated_at) %>に回答</span>    
+      </div>
+      
+      <div class="answer_content">
+        <%= answer.answer_content.truncate(55) %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
