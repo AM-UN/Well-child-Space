@@ -19,14 +19,13 @@
   
     <div class="question_content">
       <%= link_to(favorite.question.question_content, question_path(favorite.question.id)) %>
+      <div class="question_image">
+        <% if favorite.question.question_image.present? %>
+          <%= image_tag favorite.question.question_image.url %>
+        <% end %>
+      </div>
     </div>
-    
-    <div class="question_image">
-      <% if favorite.question.question_image.present? %>
-        <%= image_tag favorite.question.question_image.url %>
-      <% end %>
-    </div>
- 
+
     <% if favorite.question.answers.present? %>
       <% answer = favorite.question.answers[0] %>
       <div class="answer_user_name_and_update_at">

@@ -18,11 +18,11 @@
   
     <div class="question_content">
       <%= link_to(question.question_content, question_path(question.id)) %>
-    </div>
-    <div class="question_image">
-      <% if question.question_image.present? %>
-        <%= image_tag question.question_image.url %>
-      <% end %>
+      <div class="question_image">
+        <% if question.question_image.present? %>
+          <%= image_tag question.question_image.url %>
+        <% end %>
+      </div>
     </div>
     
     <% if question.answers.present? %>

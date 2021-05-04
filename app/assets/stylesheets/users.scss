@@ -211,11 +211,14 @@
     .question_content {  
       font-size: 18px;  
       padding: 1%;
-      margin: 3px 1% 0 2%;
+      margin: 3px 2% 0 2%;
       .question_image {
+        text-align: center;
         padding-top: 7px;
       }
     }
+    
+    
     .answer_user_name_and_update_at {
       font-size: 14px;
       font-weight: bold;
