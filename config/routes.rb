@@ -22,8 +22,8 @@ Rails.application.routes.draw do
   post "interests/:answer_id/create", to: "interests#create"
   delete "interests/:answer_id/destroy" => "interests#destroy"
 
-  get "users/:id/answers", to: "users#user_answers"
-  get "users/:id/favorites", to: "users#user_favorites"
-  get "users/:id/interests", to: "users#user_interests"
+  get "users/:id/answers", to: "users#answers"
+  get "users/:id/favorites", to: "users#favorites"
+  get "users/:id/interests", to: "users#interests"
    
 end
