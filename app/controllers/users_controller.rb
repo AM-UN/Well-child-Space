@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :update]
   before_action :ensure_correct_user, only: [:edit, :update]
-  before_action :set_user, only: [:show, :edit, :update, :user_answers, 
-                                  :user_favorites, :user_interests]
+  before_action :set_user, only: [:show, :edit, :update, :answers, :favorites, :interests]
 
   def show
   end
@@ -19,14 +18,14 @@ class UsersController < ApplicationController
     end
   end
 
-  def user_answers 
+  def answers 
     @answers = Answer.where(user_id: @user.id).order(created_at: :desc)
   end 
 
-  def user_favorites 
+  def favorites 
   end 
 
-  def user_interests 
+  def interests 
     @interests = Interest.where(user_id: @user.id).order(created_at: :desc)
   end 
 
