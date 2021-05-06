@@ -1,23 +1,26 @@
 <header>
-  <div class="header-container">
-    <div class="header-logo">
-      <%= link_to("Well-child-Space", "/") %>
-    </div>
-    <div class="header-list">    
-      <ul>
-      <% if user_signed_in? %>
+  <div class="header-logo">
+    <%= link_to("Well-child-Space", root_path) %>
+  </div>
+  
+  <div class="header-list">  
+    <ul>
+      <% if user_signed_in? %>  
         <li><%= link_to("プロフィール", user_path(current_user.id)) %></li>
         <li><%= link_to("ログアウト", destroy_user_session_path, method: :delete) %></li>
       <% else %>
         <li><%= link_to("新規登録", new_user_registration_path) %></li>
       　<li><%= link_to("ログイン", new_user_session_path) %></li>
-      <% end %>
-        <li>検索</li>
-      </ul>
-    </div>
+      <% end %>     
+    </ul>
   </div>
+
+  <%= form_with url: questions_path, method: :get, local: true do |form| %>
+    <%= form.text_field :search, placeholder:"相談内容で検索" %>    
+  <% end %>
 </header>
-<div class="header2">
+
+<div class="header-bottom">
   <h2>子育ての悩みや疑問はありませんか</h2>
   <h3><%= link_to("相談する", new_question_path) %></h3>
 </div>

@@ -31,15 +31,11 @@ header {
   width: 100%;
 }
 
-.header-container {
-  margin: 0 auto;
-}
-
 .header-logo {
-  font-size: 38px;
   float: left;
-  padding: 15px 6px; 
-  height: 60px; 
+  font-size: 38px;
+  height: 60px;
+  padding: 15px;  
 }
 
 .header-logo a {
@@ -60,22 +56,41 @@ header {
  background-color: #f390a0;
 }
 
-.header2 {
+input {
+  list-style: none;
+  float: right;
+  font-size: 16px;
+  background-color: #ffffffa1;
+  width: 250px;
+  padding: 7px;
+  margin: 26px;
+  border: 2.5px solid #888888;
+  box-shadow: 0 1px 2px #888888;
+  border-radius: 6px;
+}
+
+input:focus {
+  border: solid 2.5px #313131;
+  box-shadow: 0 1px 2px #888888;
+  outline: none;
+}
+
+.header-bottom {
   height: 50px;
-  border-bottom:2px solid rgb(223, 147, 166);
+  border-bottom:2.5px solid rgb(223, 147, 166);
   width: 100%;
 }
 
-.header2 h2 {
+.header-bottom h2 {
  color: rgb(250, 127, 127);
  font-size: 22px;
- padding: 8px 12px; 
+ padding: 9px 15px; 
  float: left;
 }
 
-.header2 h3 {
+.header-bottom h3 {
   margin: 0px;
-  padding: 8px 12px; 
+  padding: 11px 15px;
   float: right;
 }
 
