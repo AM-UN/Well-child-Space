@@ -4,6 +4,9 @@ class QuestionsController < ApplicationController
 
   def index
     @questions = Question.all.order(updated_at: :desc)
+    if params[:search].present?
+      @questions = @questions.where("question_content LIKE ?", "%#{params[:search]}%") 
+    end
   end
 
   def new
