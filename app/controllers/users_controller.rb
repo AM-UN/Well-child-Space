@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :answers, :favorites, :interests]
 
   def show
+    @questions = Question.where(user_id:@user.id).includes(answers: :user).order(updated_at: :desc)
   end
 
   def edit
@@ -19,14 +20,15 @@ class UsersController < ApplicationController
   end
 
   def answers 
-    @answers = Answer.where(user_id: @user.id).order(updated_at: :desc)
+    @answers = Answer.where(user_id: @user.id).includes(question: :user).order(updated_at: :desc)
   end 
 
   def favorites 
+    @favorites = Favorite.where(user_id:@user.id).includes(question: [:user, answers: :user]).order(updated_at: :desc)
   end 
 
   def interests 
-    @interests = Interest.where(user_id: @user.id).order(updated_at: :desc)
+    @interests = Interest.where(user_id: @user.id).includes(answer: [:user, question: :user]).order(updated_at: :desc)
   end 
 
   def ensure_correct_user

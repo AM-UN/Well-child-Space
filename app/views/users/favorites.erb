@@ -1,6 +1,6 @@
 <%= render partial: 'profile' %>
 
-<% @user.favorites.each do |favorite| %>
+<% @favorites.each do |favorite| %>
   <div class="question-answer-container">
     <div class="question_user_informations">
       <% if favorite.question.user.profile_image.present? %>
@@ -27,7 +27,7 @@
     </div>
 
     <% if favorite.question.answers.present? %>
-      <% answer = favorite.question.answers[0] %>
+      <% answer = favorite.question.answers.last %>
       <div class="answer_user_name_and_update_at">
         <%= link_to(answer.user.name, user_path(answer.user.id)) %><span>が<%= time_ago_in_words(answer.updated_at) %>に回答</span>    
       </div>

@@ -14,13 +14,5 @@ class User < ApplicationRecord
   validates :name, presence: true, length:{maximum:15}
   validates :self_introduction, presence: true, length:{maximum:250}
 
-  def questions
-    return Question.where(user_id:self.id).order(created_at: :desc)
-  end
-
-  def favorites
-    return Favorite.where(user_id:self.id).order(created_at: :desc)
-  end
-
   mount_uploader :profile_image, ImageUploader
 end
