@@ -27,8 +27,7 @@
     </div>
 
     <% if question.answers.present? %>
-      <% answers = question.answers %>
-      <% answer = answers[0] %>
+      <% answer = question.answers.last %>
       <div class="answer_user_name_and_update_at">
         <%= link_to(answer.user.name, user_path(answer.user.id)) %><span>が<%= time_ago_in_words(answer.updated_at) %>に回答</span>    
       </div>

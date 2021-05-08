@@ -3,9 +3,9 @@ class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
 
   def index
-    @questions = Question.all.order(updated_at: :desc)
+    @questions = Question.includes([:user, answers: :user]).order(updated_at: :desc)
     if params[:search].present?
-      @questions = @questions.where("question_content LIKE ?", "%#{params[:search]}%") 
+      @questions = @questions.where("question_content LIKE ?", "%#{params[:search]}%")
     end
   end
 
@@ -25,7 +25,7 @@ class QuestionsController < ApplicationController
   end  
 
   def show
-    @answers = @question.answers
+    @answers = @question.answers.includes(:user).order(updated_at: :desc).sort {|a,b| b.interests.count <=> a.interests.count}
     @favorites_count = Favorite.where(question_id: @question.id).count
   end
 
