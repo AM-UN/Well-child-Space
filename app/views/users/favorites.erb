@@ -2,14 +2,14 @@
 
 <% @favorites.each do |favorite| %>
   <div class="question-answer-container">
-    <div class="question_user_informations">
+    <div class="question-user-informations">
       <% if favorite.question.user.profile_image.present? %>
-        <%= image_tag favorite.question.user.profile_image.thumb65.url, class: "question_user_profile_image" %>
+        <%= image_tag favorite.question.user.profile_image.thumb65.url, class: "question-user-profile-image" %>
       <% else %>
-        <%= image_tag "default.jpg", size: "65x65", class: "question_user_profile_image" %>
+        <%= image_tag "default.jpg", size: "65x65", class: "question-user-profile-image" %>
       <% end %>
 
-      <div class="question_user_name_and_update_at">
+      <div class="question-user-name-and-updated-at">
         <ul>
           <li><%= link_to(favorite.question.user.name, user_path) %></li>
           <li><span><%= time_ago_in_words(favorite.question.updated_at) %>に相談</span></li>
@@ -17,9 +17,9 @@
       </div>
     </div>
   
-    <div class="question_content">
+    <div class="question-content">
       <%= link_to(favorite.question.question_content, question_path(favorite.question.id)) %>
-      <div class="question_image">
+      <div class="question-image">
         <% if favorite.question.question_image.present? %>
           <%= image_tag favorite.question.question_image.url %>
         <% end %>
@@ -28,11 +28,11 @@
 
     <% if favorite.question.answers.present? %>
       <% answer = favorite.question.answers.last %>
-      <div class="answer_user_name_and_update_at">
+      <div class="answer-user-name-and-updated-at">
         <%= link_to(answer.user.name, user_path(answer.user.id)) %><span>が<%= time_ago_in_words(answer.updated_at) %>に回答</span>    
       </div>
       
-      <div class="answer_content">
+      <div class="answer-content">
         <%= answer.answer_content.truncate(55) %>
       </div>
     <% end %>
