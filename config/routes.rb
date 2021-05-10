@@ -1,29 +1,29 @@
-Rails.application.routes.draw do
+# frozen_string_literal: true
 
-  root to: "questions#index"
+Rails.application.routes.draw do
+  root to: 'questions#index'
 
   devise_for :users, controllers: {
-    registrations: "users/registrations"
+    registrations: 'users/registrations'
   }
 
   devise_scope :user do
-    get "edit/password", to: "devise/registrations#edit"
+    get 'edit/password', to: 'devise/registrations#edit'
   end
 
-  resources :users, only: [:show, :edit, :update]
+  resources :users, only: %i[show edit update]
   resources :questions
-  resources :answers, only: [:edit, :update, :destroy]
-  
-  post "questions/:id", to: "answers#create"
+  resources :answers, only: %i[edit update destroy]
 
-  post "favorites/:question_id/create", to: "favorites#create"
-  delete "favorites/:question_id/destroy" => "favorites#destroy"
+  post 'questions/:id', to: 'answers#create'
 
-  post "interests/:answer_id/create", to: "interests#create"
-  delete "interests/:answer_id/destroy" => "interests#destroy"
+  post 'favorites/:question_id/create', to: 'favorites#create'
+  delete 'favorites/:question_id/destroy' => 'favorites#destroy'
 
-  get "users/:id/answers", to: "users#answers"
-  get "users/:id/favorites", to: "users#favorites"
-  get "users/:id/interests", to: "users#interests"
-   
+  post 'interests/:answer_id/create', to: 'interests#create'
+  delete 'interests/:answer_id/destroy' => 'interests#destroy'
+
+  get 'users/:id/answers', to: 'users#answers'
+  get 'users/:id/favorites', to: 'users#favorites'
+  get 'users/:id/interests', to: 'users#interests'
 end

@@ -1,15 +1,17 @@
+# frozen_string_literal: true
+
 class ImageUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
-  # include CarrierWave::RMagick 
+  # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
   process resize_to_fit: [752, 2000]
 
   version :thumb65 do
-    process resize_and_pad: [65, 65, "white"]
+    process resize_and_pad: [65, 65, 'white']
   end
 
   version :thumb80 do
-    process resize_and_pad: [80, 80, "white"]
+    process resize_and_pad: [80, 80, 'white']
   end
 
   # Choose what kind of storage to use for this uploader:
@@ -40,7 +42,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Add an allowlist of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   def extension_allowlist
-    %w(jpg jpeg gif png)
+    %w[jpg jpeg gif png]
   end
 
   # Override the filename of the uploaded files:
