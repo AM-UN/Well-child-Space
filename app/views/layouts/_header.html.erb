@@ -1,22 +1,22 @@
 <header>
-  <div class="header-logo">
-    <%= link_to("Well-child-Space", root_path) %>
-  </div>
-
   <div class="header-list">
+    <div class="header-logo">
+      <%= link_to("Well-child-Space", root_path) %>
+    </div>
+    
     <div class="question-search-field">  
       <%= form_with url: questions_path, method: :get, local: true do |form| %>
         <%= form.text_field :search, placeholder:"相談内容で検索" %>    
       <% end %>
     </div>  
     
-    <ul>
+    <ul class="header-option">
       <% if user_signed_in? %>  
-        <li><%= link_to("プロフィール", user_path(current_user.id)) %></li>
         <li><%= link_to("ログアウト", destroy_user_session_path, method: :delete) %></li>
+        <li><%= link_to("プロフィール", user_path(current_user.id)) %></li>
       <% else %>
+        <li><%= link_to("ログイン", new_user_session_path) %></li>
         <li><%= link_to("新規登録", new_user_registration_path) %></li>
-      　<li><%= link_to("ログイン", new_user_session_path) %></li>
       <% end %>     
     </ul>
   </div>

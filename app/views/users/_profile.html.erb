@@ -22,11 +22,9 @@
   <% end %>
 </div>
 
-<div class="user-tabs">
-  <ul>
-    <li><%= link_to("投稿した相談", user_path) %></li>
-    <li><%= link_to("投稿した回答", "/users/#{@user.id}/answers") %></li>
-    <li><%= link_to("応援した相談", "/users/#{@user.id}/favorites") %></li>
-    <li><%= link_to("ためになった回答", "/users/#{@user.id}/interests") %></li>
-  </div>
+<ul class="user-tabs">
+  <li><%= link_to("投稿した相談", user_path) %></li>
+  <li><%= link_to("投稿した回答", "/users/#{@user.id}/answers") %></li>
+  <li><%= link_to("応援した相談", "/users/#{@user.id}/favorites") %></li>
+  <li><%= link_to("ためになった回答", "/users/#{@user.id}/interests") %></li>
 </ul>
