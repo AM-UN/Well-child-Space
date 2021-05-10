@@ -1,12 +1,12 @@
 <div class="question-container">
-  <div class="question_user_informations">  
+  <div class="question-user-informations">  
     <% if @question.user.profile_image.present? %>
       <%= image_tag @question.user.profile_image.thumb65.url, class: "question_user_profile_image" %>
     <% else %>
-      <%= image_tag "default.jpg", size: "65x65", class: "question_user_profile_image" %>
+      <%= image_tag "default.jpg", size: "65x65", class: "question-user-profile-image" %>
     <% end %>
   
-    <div class="question_user_name_and_update_at">
+    <div class="question-user-name-and-updated-at">
       <ul>
         <li><%= link_to(@question.user.name, user_path(@question.user.id)) %></li>
         <li><span>質問日時 <%= @question.updated_at.strftime("%Y年 %m月 %d日 %H:%M") %></span></li>
@@ -14,18 +14,17 @@
     </div>
   </div>
 
-  <div class="question_content">
-    <div class="question_text">
+  <div class="question-content">
+    <div class="question-text">
       <%= @question.question_content %>
     </div>
-    <div class="question_image">
+    <div class="question-image">
       <% if @question.question_image.present? %>
         <%= image_tag @question.question_image.url %>
       <% end %>
     </div>
   </div>
 </div>
-
 
 
 <div class="answer-container">

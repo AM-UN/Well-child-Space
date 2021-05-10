@@ -1,14 +1,14 @@
 <%= render 'layouts/flash' %>
 
 <div class="question-container">
-  <div class="question_user_informations">  
+  <div class="question-user-informations">  
     <% if @question.user.profile_image.present? %>
-      <%= image_tag @question.user.profile_image.thumb65.url, class: "question_user_profile_image" %>
+      <%= image_tag @question.user.profile_image.thumb65.url, class: "question-user-profile-image" %>
     <% else %>
-      <%= image_tag "default.jpg", size: "65x65", class: "question_user_profile_image" %>
+      <%= image_tag "default.jpg", size: "65x65", class: "question-user-profile-image" %>
     <% end %>
   
-    <div class="question_user_name_and_update_at">
+    <div class="question-user-name-and-updated-at">
       <ul>
         <li><%= link_to(@question.user.name, user_path(@question.user.id)) %></li>
         <li><span>質問日時 <%= @question.updated_at.strftime("%Y年 %m月 %d日 %H:%M") %></span></li>
@@ -24,19 +24,19 @@
     <% end %>
   </div>  
 
-  <div class="question_content">
-    <div class="question_text">
+  <div class="question-content">
+    <div class="question-text">
       <%= @question.question_content %>
     </div>
-    <div class="question_image">
+    <div class="question-image">
       <% if @question.question_image.present? %>
         <%= image_tag @question.question_image.url %>
       <% end %>
     </div>
   </div>
 
-  <div class="question_options">
-    <div class="question_interest">
+  <div class="question-options">
+    <div class="question-interest">
       <% if current_user and Favorite.find_by(user_id:current_user.id, question_id:@question.id) %>
         <%= link_to( "/favorites/#{@question.id}/destroy", {method: "delete"}) do %>
           <i class="fas fa-smile question-icon"></i>
@@ -52,7 +52,7 @@
 
     <% if current_user %>
       <% if @question.user_id == current_user.id %>
-        <div class="question_edit_and_delete">
+        <div class="question-edit-and-delete">
           <%= link_to '編集する', edit_question_path %> 
           <%= link_to '削除する', question_path, method: :delete %> 
         </div>
@@ -62,17 +62,16 @@
 </div>
 
 
-
 <% @answers.each do |answer| %>
   <div class="answer-container">
-    <div class="answer_user_informations">  
+    <div class="answer-user-informations">  
       <% if answer.user.profile_image.present? %>
-        <%= image_tag answer.user.profile_image.thumb65.url, class: "answer_user_profile_image" %>
+        <%= image_tag answer.user.profile_image.thumb65.url, class: "answer-user-profile-image" %>
       <% else %>
-        <%= image_tag "default.jpg", size: "65x65", class: "answer_user_profile_image" %>
+        <%= image_tag "default.jpg", size: "65x65", class: "answer-user-profile-image" %>
       <% end %>
 
-      <div class="answer_user_name_and_update_at">
+      <div class="answer-user-name-and-updated-at">
         <ul>
           <li><%= link_to(answer.user.name, user_path(answer.user.id)) %></li>
           <li><span>回答日時 <%= answer.updated_at.strftime("%Y年 %m月 %d日 %H:%M") %></span></li>
@@ -80,17 +79,17 @@
       </div>
     </div>
 
-    <div class="answer_content">
+    <div class="answer-content">
       <%= answer.answer_content %>
-      <div class="answer_image">
+      <div class="answer-image">
         <% if answer.answer_image.present? %>
           <%= image_tag answer.answer_image.url %>
         <% end %>
       </div>
     </div>
     
-    <div class="answer_options">
-      <div class="answer_interest">
+    <div class="answer-options">
+      <div class="answer-interest">
         <% if current_user and Interest.find_by(user_id:current_user.id, answer_id:answer.id) %>
           <%= link_to( "/interests/#{answer.id}/destroy", {method: "delete"}) do %>
             <i class="fas fa-thumbs-up answer-icon"></i>
@@ -106,7 +105,7 @@
 
       <% if current_user %>
         <% if answer.user_id == current_user.id %>
-          <div class="answer_edit_and_delete">
+          <div class="answer-edit-and-delete">
             <%= link_to '編集する', "/answers/#{answer.id}/edit" %> 
             <%= link_to '削除する', "/answers/#{answer.id}", method: :delete %> 
           </div>
@@ -122,7 +121,7 @@
     <%= form_with model:@answer, local: true do |form| %>
       <div id="current-answer-content">       
         <% if flash[:error].present? %>
-          <div class="error_messages">
+          <div class="error-messages">
             <ul>
               <% flash[:error].each do |error| %>
                 <li><%= error %></li>
@@ -134,9 +133,7 @@
       </div>
 
       <div class="current-answer-image">
-      
         <%= form.label :answer_image, "画像をアップロード" %>
-        
         <%= form.file_field :answer_image %>
       </div>
 

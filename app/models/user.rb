@@ -13,8 +13,8 @@ class User < ApplicationRecord
 
   validates :email, presence: true, uniqueness: true, length: { minimum: 5, maximum: 30 }, allow_blank: true
   validates :password, presence: true, length: { minimum: 6, maximum: 20 }, allow_blank: true
-  validates :name, presence: true, length: {maximum: 15}
-  validates :self_introduction, presence: true, length: {maximum: 250}
+  validates :name, presence: true, length: { maximum: 15 }
+  validates :self_introduction, presence: true, length: { maximum: 250}
 
   mount_uploader :profile_image, ImageUploader
 end

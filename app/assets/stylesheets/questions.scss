@@ -80,16 +80,16 @@
     margin-top: 30px;
     margin-bottom: 35px;
     border-radius: 15px;
-    .question_user_informations {
+    .question-user-informations {
       display: flex;
       text-align: left;
       padding: 1% 0;
       margin: 0 2%;
       border-bottom: 2px solid #ffa6a6;
-      .question_user_profile_image {
+      .question-user-profile-image {
         border-radius: 50%;
       }
-      .question_user_name_and_update_at {
+      .question-user-name-and-updated-at {
         padding-top: 1%;
         padding-left: 2%;
         li {
@@ -107,28 +107,28 @@
         padding-right: 6px;
       }
     }
-    .question_content {    
+    .question-content {    
       padding: 1%;
       margin: 3px 2% 0 2%;
       border-bottom: 2px solid #ffa6a6; 
-      .question_text {
+      .question-text {
         text-align: left;
       }
-      .question_image {
+      .question-image {
         padding-top: 7px;
       }
     }
-    .question_options {
+    .question-options {
       display: flex;
       padding: 1.2% 3%;
       height: 23px;
-      .question_interest {
+      .question-interest {
         .question-icon {
           font-size: 21px;
           color: #ffa6a6;
         }
       }
-      .question_edit_and_delete {
+      .question-edit-and-delete {
         margin-left: auto;
       }
     }
@@ -140,15 +140,15 @@
     margin-top: 35px;
     margin-bottom: 35px;
     border-radius: 15px;
-    .answer_user_informations {
+    .answer-user-informations {
       display: flex;
       padding: 1% 0;
       margin: 0px 2%;
       border-bottom: 2px solid rgb(223, 147, 166);
-      .answer_user_profile_image {
+      .answer-user-profile-image {
         border-radius: 50%;      
       }
-      .answer_user_name_and_update_at {
+      .answer-user-name-and-updated-at {
         padding-top: 1%;
         padding-left: 2%;
         li {
@@ -156,26 +156,26 @@
         }
       }
     }
-    .answer_content {
+    .answer-content {
       padding: 1%;
       margin: 3px 2% 0 2%;
       border-bottom: 2px solid rgb(223, 147, 166); 
-      .answer_image {
+      .answer-image {
         text-align: center;
         padding-top: 7px;
       }
     }
-    .answer_options {
+    .answer-options {
       display: flex;
       padding: 1.2% 3%;
       height: 23px;
-      .answer_interest {
+      .answer-interest {
         .answer-icon {
           font-size: 21px;
           color: rgb(223, 147, 166);
         }
       }
-      .answer_edit_and_delete {
+      .answer-edit-and-delete {
         margin-left: auto;
       }
     }
@@ -184,7 +184,7 @@
     #current-answer-content {
       @include textarea-design($width:700px);
       text-align: center;
-      .error_messages {
+      .error-messages {
         color: rgb(250, 127, 127);
         font-weight: bold;
       }
@@ -213,16 +213,16 @@
     margin-top: 30px;
     margin-bottom: 35px;
     border-radius: 15px;
-    .question_user_informations {
+    .question-user-informations {
       display: flex;
       text-align: left;
       padding: 1% 0;
       margin: 0 2%;
       border-bottom: 2px solid #ffa6a6;
-      .question_user_profile_image {
+      .question-user-profile-image {
         border-radius: 50%;
       }
-      .question_user_name_and_update_at {
+      .question-user-name-and-updated-at {
         font-size: 18px;  
         padding-top: 1%;
         padding-left: 2%;
@@ -231,15 +231,15 @@
         }
       }
     }
-    .question_content {  
+    .question-content {  
       font-size: 18px;  
       padding: 1%;
       margin: 3px 1% 0 2%;
-      .question_image {
+      .question-image {
         padding-top: 7px;
       }
     }
-    .answer_user_name_and_update_at {
+    .answer-user-name-and-updated-at {
       font-size: 14px;
       font-weight: bold;
       padding: 1%;
@@ -248,7 +248,7 @@
       border-bottom: 2px solid #ffa6a6;
       color: #ffa6a6;
     }  
-    .answer_content {
+    .answer-content {
       font-size: 14px;
       padding: 1%;
       margin: 3px 2% 0 2%;
