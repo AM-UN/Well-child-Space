@@ -11,7 +11,7 @@ echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.lis
 apt-get update && apt-get install -y yarn
 
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - 
-RUN apt-get install -y nodejs npm && npm install n -g && n 10.17.0
+RUN apt-get install -y nodejs npm && npm install n -g && n 14.15.0
 
 RUN yarn add node-sass
 
