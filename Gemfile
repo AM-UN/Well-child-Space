@@ -53,6 +53,8 @@ group :development, :test do
   # For test
   gem 'rspec-rails'
   gem 'factory_bot_rails'
+  # Measure coverage
+  gem 'simplecov'
 end
 
 group :development do
