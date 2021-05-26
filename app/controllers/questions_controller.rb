@@ -18,7 +18,7 @@ class QuestionsController < ApplicationController
     @question.user_id = current_user.id
     if @question.save
       flash[:notice] = '相談が追加されました'
-      redirect_to(questions_path)
+      redirect_to(root_path)
     else
       render action: :new
     end
@@ -34,7 +34,7 @@ class QuestionsController < ApplicationController
   def update
     if @question.update(question_params)
       flash[:notice] = '相談が編集されました'
-      redirect_to(questions_path)
+      redirect_to(root_path)
     else
       render action: :edit
     end
@@ -43,7 +43,7 @@ class QuestionsController < ApplicationController
   def destroy
     if @question.destroy
       flash[:notice] = '相談が取り消されました'
-      redirect_to(questions_path)
+      redirect_to(root_path)
     end
   end
 
