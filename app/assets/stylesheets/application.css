@@ -47,7 +47,7 @@ header {
 }
 
 .header-logo a:hover {
-  color: rgb(220 220 220);
+  color: rgb(220, 220, 220);
 }
 
 .header-logo:hover {
@@ -90,7 +90,7 @@ header {
  }
 
  .header-option a:hover {
-  color: rgb(220 220 220);
+  color: rgb(220, 220, 220);
  }
 
 .header-bottom {
