@@ -46,6 +46,10 @@ header {
   color: rgb(253, 253, 253);
 }
 
+.header-logo a:hover {
+  color: rgb(220 220 220);
+}
+
 .header-logo:hover {
   background-color: #f390a0;
 }
@@ -73,12 +77,21 @@ header {
 
 .header-option li {
   list-style: none;
-  padding: 33px 20px;
+  padding: 31px 20px;
 }
 
 .header-option li:hover {
- background-color: #f390a0;
+  background-color: #f390a0;
 }
+
+.header-option a {
+  color: rgb(253, 253, 253);
+  font-size: 18px;
+ }
+
+ .header-option a:hover {
+  color: rgb(220 220 220);
+ }
 
 .header-bottom {
   display: flex;
@@ -97,6 +110,14 @@ header {
 .header-bottom h3 {
   margin: 0px;
   padding: 11px 15px;
+}
+
+.header-bottom a {
+  color: blue;
+}
+
+.header-bottom a:hover {
+  color: #000000;
 }
 
 footer {
