@@ -14,7 +14,7 @@
   </div>
   <% if current_user %>
     <% if @user.id == current_user.id %>
-      <div class="user-edit-change">
+      <div class="user-edit">
         <span><%= link_to("ユーザーを編集", edit_user_path) %>&nbsp</span>
         <span><%= link_to("パスワードの変更", "/edit/password") %></span>
       </div>
