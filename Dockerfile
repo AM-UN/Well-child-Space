@@ -13,6 +13,8 @@ apt-get update && apt-get install -y yarn
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - 
 RUN apt-get install -y nodejs npm && npm install n -g && n 14.15.0
 
+RUN apt-get install -y vim
+
 RUN yarn add node-sass
 
 RUN mkdir /app
@@ -21,3 +23,6 @@ COPY Gemfile /app/Gemfile
 COPY Gemfile.lock /app/Gemfile.lock
 RUN bundle install
 COPY . /app
+
+VOLUME /app/public
+VOLUME /app/tmp

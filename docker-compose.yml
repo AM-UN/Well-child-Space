@@ -4,7 +4,7 @@ services:
         build: .
         environment: 
             TZ: "Asia/Tokyo"
-        command: bundle exec rails s -p 3000 -b '0.0.0.0'
+        command: bundle exec puma -t 5:5 -e production -C config/puma.rb
         volumes:
             - .:/app
         ports:
