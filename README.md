@@ -23,33 +23,53 @@ https://www.well-child-space.com/
 HTML / CSS / Sass
 
 ## バックエンド  
-Ruby  
-Rails   
-carrierwave  
-devise  
-mini_magick  
-dotenv-rails  
-rspec-rails  
-factory_bot_rails  
-simplecov  
-capybara  
-bullet  
-rubocop  
-fog-aws  
+Ruby 2.5.3  
+Rails 5.2.6   
+carrierwave (画像のアップロード)  
+mini_magick (画像のサイズ変更)  
+devise (ログイン)  
+dotenv-rails (環境変数の管理)  
+rspec-rails (テストフレームワーク)  
+factory_bot_rails (テストデータの作成)  
+capybara (E2Eテスト)  
+simplecov (カバレッジの測定)  
+bullet (N+1問題の解決)  
+rubocop (静的コード解析)  
+fog-aws (S3)  
 
 ## 開発環境  
-Docker  
-DockerCompose  
+Docker 20.10.6  
+DockerCompose 1.29.1  
 
 ## 本番環境  
 AWS(IAM、VPC、EC2、RDS 、S3、ACM、ALB、Route53)  
-Nginx  
-Puma  
-Mysql   
+Nginx 1.20.0  
+Puma 3.12.6  
+Mysql 5.7.33  
 
 ## バージョン管理  
-Git   
+Git 2.30.1   
 
 ## その他使用ツール  
 Visual Studio Code  
 draw.io
+
+# ER図
+![er完成](https://user-images.githubusercontent.com/70546620/125633776-84105aac-c3c8-4925-90fe-2cc709abf19d.png)
+
+# インフラ構成図
+![aws完成](https://user-images.githubusercontent.com/70546620/125633952-d6ce3603-eaeb-4f1f-b072-d33ca9f41248.png)
+
+# 機能一覧
+## 相談、回答関連
+投稿機能  
+一覧機能  
+詳細表示機能  
+削除機能  
+キーワード検索機能  
+いいね機能  
+
+## プロフィール関連
+ユーザー登録機能  
+ログイン機能  
+プロフィール編集機能  
