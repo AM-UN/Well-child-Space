@@ -62,12 +62,21 @@ draw.io
 
 # 機能一覧
 ## 相談、回答関連
-投稿機能  
+相談投稿機能  
+![相談投稿](https://user-images.githubusercontent.com/70546620/126039688-b7b6ca78-1ab6-4cd9-8afb-414679fcec7b.gif)
+
+回答投稿機能  
+![回答投稿](https://user-images.githubusercontent.com/70546620/126039690-9df1b3a4-fe7f-4ece-90ec-2e5156fc75d7.gif)
+
 一覧機能  
 詳細表示機能  
+![詳細](https://user-images.githubusercontent.com/70546620/126039827-590f537b-96e7-415d-8cf5-7ae523045fba.gif)
+
 削除機能  
 キーワード検索機能  
 いいね機能  
+![いいね機能](https://user-images.githubusercontent.com/70546620/126039835-58d34911-39e7-4a10-81b3-c878b9106e0c.gif)
+
 
 ## プロフィール関連
 ユーザー登録機能  
